@@ -6,6 +6,7 @@
 // Path 2
 // Use dummy data to request to request all of those countries API objects
 
+
 const RequestHelper = require('../helpers/request_helper.js');
 const PubSub = require('../helpers/pub_sub.js');
 const sample_data = require('../data/dummy.js')
@@ -13,6 +14,7 @@ const sample_data = require('../data/dummy.js')
 
 const Countries = function () {
   this.apiCountries = [];
+  this.hellos = [];
 };
 
 Countries.prototype.getCountriesAPIData = function () {
@@ -44,7 +46,22 @@ Countries.prototype.filterData = function (apiData, sampleData) {
   return filteredObjectArray
 };
 
+Countries.prototype.buildGameData = function () {
+  /// do path 1: this.retrieveAllHellos();
+  /// do path 2: this.getCountriesAPIData();
+  /// combine:   this.combineData();
+  /// publish to game.js
+};
 
+Countries.prototype.retrieveAllHellos = function () {
+  const hellosRequest = new Request('api/hellos')
+  request
+    .get()
+    .then((listItems) => {
+      this.hellos = listItems
+    }
+  return this.hellos
+};
 
 
 module.exports = Countries
