@@ -12,18 +12,26 @@ const sample_data = require('../data/dummy.js')
 
 
 const Countries = function () {
-  this.countries = [];
+  this.apiCountries = [];
 };
 
 Countries.prototype.getCountriesAPIData = function () {
   const requestHelper = new RequestHelper('https://restcountries.eu/rest/v2/all');
-  requestHelper.get((apiData) => {
-  const filteredData = this.filterData(apiData, sample_data);
-  return filteredData
-  });
+  const myPromise = requestHelper.get()
+  myPromise.then((data) => {
+    this.apiCountries = data
+    console.log(this.apiCountries);
+    const filteredCountries =this.filterData(this.apiCountries, sample_data)
+    console.log(filteredCountries);
+  })
+
+
 };
 
+
+
 Countries.prototype.filterData = function (apiData, sampleData) {
+  debugger
   let filteredObjectArray = []
   sampleData.forEach((country) => {
     apiData.forEach((apiCountry) => {
