@@ -6,23 +6,6 @@
 // Path 2
 // Use dummy data to request to request all of those countries API objects
 
-
-<<<<<<< HEAD
-
-
-ContiresCollection.prototype.combineData = function (){
-  const countryHellos = this.hellos;
-  let countryApiData = this.countries;
-  countryApiData.forEach((apiCountry) => {
-    countryHellos.forEach((helloCountry) =>{
-      if (apiCountry.name === helloCountry.name){
-        apiCountry.hello = helloCountry.hello;
-      }
-    })
-  })
-  return countryApiData;
-};
-=======
 const RequestHelper = require('../helpers/request_helper.js');
 const PubSub = require('../helpers/pub_sub.js');
 const sample_data = require('../data/dummy.js')
@@ -31,6 +14,13 @@ const sample_data = require('../data/dummy.js')
 const Countries = function () {
   this.apiCountries = [];
   this.hellos = [];
+};
+
+Countries.prototype.buildGameData = function () {
+  /// do path 1: this.retrieveAllHellos();
+  /// do path 2: this.getCountriesAPIData();
+  /// combine:   this.combineData();
+  /// publish to game.js
 };
 
 Countries.prototype.getCountriesAPIData = function () {
@@ -42,11 +32,7 @@ Countries.prototype.getCountriesAPIData = function () {
     const filteredCountries =this.filterData(this.apiCountries, sample_data)
     console.log(filteredCountries);
   })
-
-
 };
-
-
 
 Countries.prototype.filterData = function (apiData, sampleData) {
   debugger
@@ -62,13 +48,6 @@ Countries.prototype.filterData = function (apiData, sampleData) {
   return filteredObjectArray
 };
 
-Countries.prototype.buildGameData = function () {
-  /// do path 1: this.retrieveAllHellos();
-  /// do path 2: this.getCountriesAPIData();
-  /// combine:   this.combineData();
-  /// publish to game.js
-};
-
 Countries.prototype.retrieveAllHellos = function () {
   const hellosRequest = new RequestHelper('api/hellos')
   request
@@ -79,6 +58,18 @@ Countries.prototype.retrieveAllHellos = function () {
   return this.hellos
 }
 
+ContiresCollection.prototype.combineData = function (){
+  const countryHellos = this.hellos;
+  let countryApiData = this.countries;
+  countryApiData.forEach((apiCountry) => {
+    countryHellos.forEach((helloCountry) =>{
+      if (apiCountry.name === helloCountry.name){
+        apiCountry.hello = helloCountry.hello;
+      }
+    })
+  })
+  return countryApiData;
+};
+
 
 module.exports = Countries
->>>>>>> develop
