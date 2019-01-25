@@ -59,9 +59,8 @@ Countries.prototype.retrieveAllHellos = function () {
     .get()
     .then((listItems) => {
       this.hellos = listItems
-    }
+    })
   return this.hellos
-)
 }
 
 
