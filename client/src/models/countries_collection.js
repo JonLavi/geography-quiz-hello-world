@@ -12,11 +12,11 @@ const CountriesCollection = function () {
   this.hellos = []
 }
 
-
 CountriesCollection.prototype.buildGameData = function () {
   /// do path 1: this.retrieveAllHellos();
-  /// do path 2
-  /// combine
+  /// do path 2: this.getCountriesAPIData();
+  /// combine:   this.combineData();
+  /// publish to game.js
 };
 
 CountriesCollection.prototype.retrieveAllHellos = function () {
@@ -28,6 +28,5 @@ CountriesCollection.prototype.retrieveAllHellos = function () {
     }
   return this.hellos
 };
-
 
 module.exports = ContriesCollection;

@@ -1,15 +1,15 @@
 const sample_data =
 
 [{
-  country: "France",
+  name: "France",
   hello: "bonjour"
 },
 {
-  country: "Spain",
+  name: "Spain",
   hello: "hola"
 },
 {
-  country: "Germany",
+  name: "Germany",
   hello: "guten tag"
 }
 ]
