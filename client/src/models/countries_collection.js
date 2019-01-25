@@ -20,9 +20,9 @@ Countries.prototype.getCountriesAPIData = function () {
   const myPromise = requestHelper.get()
   myPromise.then((data) => {
     this.apiCountries = data
-    console.log(this.apiCountries);
+    // console.log(this.apiCountries);
     const filteredCountries =this.filterData(this.apiCountries, sample_data)
-    console.log(filteredCountries);
+    console.log('filtered countries',filteredCountries);
   })
 
 
@@ -31,7 +31,7 @@ Countries.prototype.getCountriesAPIData = function () {
 
 
 Countries.prototype.filterData = function (apiData, sampleData) {
-  debugger
+
   let filteredObjectArray = []
   sampleData.forEach((country) => {
     apiData.forEach((apiCountry) => {
