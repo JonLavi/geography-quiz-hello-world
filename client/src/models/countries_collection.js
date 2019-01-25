@@ -8,7 +8,6 @@
 
 const Request = require('../helpers_request_helper.js');
 
-
 const CountriesCollection = function () {
   this.hellos = []
 }
@@ -28,8 +27,6 @@ CountriesCollection.prototype.retrieveAllHellos = function () {
       this.hellos = listItems
     }
 };
-
-
 
 
 module.exports = ContriesCollection;
