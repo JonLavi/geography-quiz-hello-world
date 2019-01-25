@@ -17,16 +17,23 @@ const Countries = function () {
 
 Countries.prototype.getCountriesAPIData = function () {
   const requestHelper = new RequestHelper('https://restcountries.eu/rest/v2/all');
-  requestHelper.get((data) => {
-  const filteredData = this.filterData(data, sample_data);
+  requestHelper.get((apiData) => {
+  const filteredData = this.filterData(apiData, sample_data);
   return filteredData
   });
 };
 
-Countries.prototype.filterData = function (data1, data2) {
-  data2.foreach()
-    if country.name === data2.country
-  }
+Countries.prototype.filterData = function (apiData, sampleData) {
+  let filteredObjectArray = []
+  sampleData.forEach((country) => {
+    apiData.forEach((apiCountry) => {
+      if (apiCountry.name === country.name) {
+        filteredObjectArray.push(apiCountry)
+      }
+    }
+  )
+  })
+  return filteredObjectArray
 };
 
 
