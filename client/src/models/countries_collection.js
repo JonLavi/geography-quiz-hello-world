@@ -26,6 +26,7 @@ CountriesCollection.prototype.retrieveAllHellos = function () {
     .then((listItems) => {
       this.hellos = listItems
     }
+  return this.hellos
 };
 
 
