@@ -54,14 +54,15 @@ Countries.prototype.buildGameData = function () {
 };
 
 Countries.prototype.retrieveAllHellos = function () {
-  const hellosRequest = new Request('api/hellos')
+  const hellosRequest = new RequestHelper('api/hellos')
   request
     .get()
     .then((listItems) => {
       this.hellos = listItems
     }
   return this.hellos
-};
+)
+}
 
 
 module.exports = Countries
