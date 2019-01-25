@@ -8,6 +8,7 @@
 
 const RequestHelper = require('../helpers/request_helper.js');
 const PubSub = require('../helpers/pub_sub.js');
+const sample_data = require('../data/dummy.js')
 
 
 const Countries = function () {
@@ -17,13 +18,15 @@ const Countries = function () {
 Countries.prototype.getCountriesAPIData = function () {
   const requestHelper = new RequestHelper('https://restcountries.eu/rest/v2/all');
   requestHelper.get((data) => {
-    this.filterData(data);
-    PubSub.publish('Countries:API-data-ready', this.countries);
+  const filteredData = this.filterData(data, sample_data);
+  return filteredData
   });
 };
 
-Countries.prototype.filterData = function (dummyData) {
- 
+Countries.prototype.filterData = function (data1, data2) {
+  data2.foreach()
+    if country.name === data2.country
+  }
 };
 
 
