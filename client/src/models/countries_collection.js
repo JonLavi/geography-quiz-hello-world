@@ -35,7 +35,6 @@ Countries.prototype.getCountriesAPIData = function () {
 };
 
 Countries.prototype.filterData = function (apiData, sampleData) {
-  debugger
   let filteredObjectArray = []
   sampleData.forEach((country) => {
     apiData.forEach((apiCountry) => {
@@ -58,7 +57,7 @@ Countries.prototype.retrieveAllHellos = function () {
   return this.hellos
 }
 
-ContiresCollection.prototype.combineData = function (){
+Countries.prototype.combineData = function (){
   const countryHellos = this.hellos;
   let countryApiData = this.countries;
   countryApiData.forEach((apiCountry) => {

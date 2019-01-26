@@ -1,26 +1,29 @@
 const PubSub = require('../helpers/pub_sub.js');
+const dummyGameData = require('../data/dummy_game_data.js')
 
 const Game = function () {
   this.countries_data = []
-  this.numberOfRounds = 5
+  this.numberOfRounds = 3
+  this.roundNumber = 0
   this.selectionForGame = []
 };
 
-Game.prototype.bindEvents() = function () {
-  PubSub.subscribe('Countries:game-data', (evt) => {
-    this.countries_data = evt.detail;
+Game.prototype.bindEvents = function () {
+  // PubSub.subscribe('Countries:game-data', (evt) => {
+    // this.countries_data = evt.detail;
+
+    this.countries_data = dummyGameData
 
     this.prepareGame();
 
     this.startGame();
-  })
+  // })
 };
 
 Game.prototype.prepareGame = function () {
-  const countrySelection = this.shuffleCountries(this.countries_data);
-  this.selectionForGame = countrySelection.slice(0, ( this.numberOfRounds - 1 ));
+  const shuffledCountries = this.shuffleCountries(this.countries_data);
+  this.selectionForGame = shuffledCountries.slice(0, this.numberOfRounds );
 };
-
 
 Game.prototype.shuffleCountries = function(countriesArray) {
   let currentIndex = countriesArray.length;
@@ -42,9 +45,9 @@ Game.prototype.shuffleCountries = function(countriesArray) {
 
 
 Game.prototype.startGame = function () {
-  let roundNumber = 0
+  this.roundNumber = 0
 
-  while roundNumber < this.numberOfRounds {
+  while (this.roundNumber < this.numberOfRounds) {
     this.playRound();
   }
 
@@ -53,24 +56,25 @@ Game.prototype.startGame = function () {
 
 
 Game.prototype.playRound = function () {
-  let currentQuestion = this.selectionForGame[roundNumber];
+  let currentQuestion = this.selectionForGame[this.roundNumber];
   let questionData = {
-    "name": currentQuestion.name,
-    "capital": currentQuestion.capital
+    name: currentQuestion.name,
+    capital: currentQuestion.capital
   }
   PubSub.publish('Game:question-data-ready', questionData);
 
-  PubSub.subscribe('SkipView:skip-button-pressed', () => {
-    roundNumber ++;
-    // end round, increase round number, start new round
-  });
-
-  PubSub.subscribe('InputView:answer-submitted', (evt) => {
-    result = this.evaluateAnswer(evt.detail);
-    PubSub.publish('ResultView:result-ready', result);
-    roundNumber ++;
-    // end round
-  });
+  // PubSub.subscribe('SkipView:skip-button-pressed', () => {
+  //   roundNumber ++;
+  //   // end round, increase round number, start new round
+  // });
+  //
+  // PubSub.subscribe('InputView:answer-submitted', (evt) => {
+  //   result = this.evaluateAnswer(evt.detail);
+  //   PubSub.publish('ResultView:result-ready', result);
+  //   roundNumber ++;
+  //   // end round
+  // });
+  this.roundNumber ++;
 };
 
 
