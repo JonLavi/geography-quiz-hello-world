@@ -1,35 +1,35 @@
 const express = require('express');
-const ObjectID = require('mongodb').ObjectID; // used to transform Ids from String to ObjectID 'class';
+const ObjectID = require('mongodb').ObjectID;
 
-const createRouter = function (collection) { // takes the database collection to work with it
+const createRouter = function (collection) {
 
-  const router = express.Router(); // listening to localhost/api/games
+  const router = express.Router();
 
   // index
-  router.get('/', (req, res) => { // request is just index, response is asking mongodb to give all games
+  router.get('/', (req, res) => {
     collection
-      .find() // asking for all games in the collection
-      .toArray() // make it come back as array
-      .then((docs) => res.json(docs)) // 'docs' is the result of collection.find()
-      .catch(console.error) // documents is the array of objects, turn to JSON
+      .find()
+      .toArray()
+      .then((docs) => res.json(docs))
+      .catch(console.error)
   })
 
   // show
   router.get('/:id', (req, res) => {
-    const id = req.params.id; // pull out ID from request, which arrives as String!
+    const id = req.params.id;
     collection
-      .findOne({ _id: ObjectID(id) }) // transform String ID into objectID 'class' and find
-      .then((docs) => res.json(docs)) // return document as json. can test by pasting into Insomnia
+      .findOne({ _id: ObjectID(id) })
+      .then((docs) => res.json(docs))
       .catch(console.error)
   })
 
   // post
   router.post('/', (req, res) => {
-    const newGame = req.body; // saving new game data to a variable (comes from response)
+    const newGame = req.body;
     collection
-      .insertOne(newGame) // add it to DB
-      .then(() => collection.find().toArray()) // in-line function: implicit return of collection in a one-line function
-      .then((docs) => res.json(docs)) // return the full list of games
+      .insertOne(newGame)
+      .then(() => collection.find().toArray())
+      .then((docs) => res.json(docs))
       .catch(console.error)
   })
 
@@ -39,7 +39,7 @@ const createRouter = function (collection) { // takes the database collection to
     collection
       .deleteOne({ _id: ObjectID(id)})
       .then(() => collection.find().toArray())
-      .then((docs) => res.json(docs)) // return document as json. can test by pasting into Insomnia
+      .then((docs) => res.json(docs))
       .catch(console.error)
   })
 
