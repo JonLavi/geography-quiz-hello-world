@@ -2,6 +2,8 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const Game = function () {
   this.countries_data = []
+  this.numberOfRounds = 5
+  this.selectionForGame = []
 };
 
 Game.prototype.bindEvents() = function () {
@@ -17,6 +19,7 @@ Game.prototype.bindEvents() = function () {
 
 Game.prototype.prepareGame = function () {
   const countrySelection = this.shuffleCountries(this.countries_data);
+  this.selectionForGame = countrySelection.slice(0, ( this.numberOfRounds - 1 ));
 };
 
 
@@ -37,6 +40,10 @@ Game.prototype.shuffleCountries = function(countriesArray) {
 
   return countriesArray;
 }
+
+
+
+
 
 
 module.exports = Game;
