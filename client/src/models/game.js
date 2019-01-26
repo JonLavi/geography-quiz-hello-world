@@ -6,6 +6,7 @@ const Game = function () {
   this.numberOfRounds = 3
   this.roundNumber = 0
   this.selectionForGame = []
+  this.currentQuestion
 };
 
 Game.prototype.bindEvents = function () {
@@ -46,7 +47,7 @@ Game.prototype.shuffleCountries = function(countriesArray) {
 
 Game.prototype.startGame = function () {
   this.roundNumber = 0
-
+  debugger
   while (this.roundNumber < this.numberOfRounds) {
     this.playRound();
   }
@@ -56,28 +57,35 @@ Game.prototype.startGame = function () {
 
 
 Game.prototype.playRound = function () {
-  let currentQuestion = this.selectionForGame[this.roundNumber];
+  this.currentQuestion = this.selectionForGame[this.roundNumber];
   let questionData = {
-    name: currentQuestion.name,
-    capital: currentQuestion.capital
+    name: this.currentQuestion.name,
+    hello: this.currentQuestion.hello
   }
+
   PubSub.publish('Game:question-data-ready', questionData);
 
   // PubSub.subscribe('SkipView:skip-button-pressed', () => {
   //   roundNumber ++;
   //   // end round, increase round number, start new round
   // });
-  //
-  // PubSub.subscribe('InputView:answer-submitted', (evt) => {
-  //   result = this.evaluateAnswer(evt.detail);
-  //   PubSub.publish('ResultView:result-ready', result);
-  //   roundNumber ++;
-  //   // end round
-  // });
+
+  PubSub.subscribe('InputView:answer-submitted', (evt) => {
+    result = this.evaluateAnswer(evt.detail);
+
+    PubSub.publish('ResultView:result-ready', result);
+  });
+
   this.roundNumber ++;
 };
 
-
+Game.prototype.evaluateAnswer = function (answer) {
+  if (this.currentQuestion.capital.toLowerCase() === answer.toLowerCase()){
+    return true;
+  } else {
+    return false;
+  }
+};
 
 
 
