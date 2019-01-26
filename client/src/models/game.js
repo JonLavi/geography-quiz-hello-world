@@ -21,6 +21,8 @@ Game.prototype.bindEvents = function () {
   // })
 };
 
+/////// Prepare game workflow ///////
+
 Game.prototype.prepareGame = function () {
   const shuffledCountries = this.shuffleCountries(this.countries_data);
   this.selectionForGame = shuffledCountries.slice(0, this.numberOfRounds );
@@ -45,9 +47,12 @@ Game.prototype.shuffleCountries = function(countriesArray) {
 }
 
 
+
+/////// Start game  ///////
+
 Game.prototype.startGame = function () {
   this.roundNumber = 0
-  debugger
+
   while (this.roundNumber < this.numberOfRounds) {
     this.playRound();
   }
@@ -55,6 +60,10 @@ Game.prototype.startGame = function () {
   console.log('Game over!');
 };
 
+
+
+
+/////// Play Round workflow ///////
 
 Game.prototype.playRound = function () {
   this.currentQuestion = this.selectionForGame[this.roundNumber];
