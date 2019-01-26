@@ -58,7 +58,7 @@ Countries.prototype.retrieveAllHellos = function () {
   return this.hellos
 }
 
-ContiresCollection.prototype.combineData = function (){
+CountriesCollection.prototype.combineData = function (){
   const countryHellos = this.hellos;
   let countryApiData = this.countries;
   countryApiData.forEach((apiCountry) => {
