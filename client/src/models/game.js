@@ -4,9 +4,7 @@ const dummyGameData = require('../data/dummy_game_data.js')
 const Game = function () {
   this.countries_data = []
   this.numberOfRounds = 3
-  this.roundNumber = 0
   this.selectionForGame = []
-  this.currentQuestion
 };
 
 Game.prototype.bindEvents = function () {
@@ -51,10 +49,11 @@ Game.prototype.shuffleCountries = function(countriesArray) {
 /////// Start game  ///////
 
 Game.prototype.startGame = function () {
-  this.roundNumber = 0
+  let roundNumber = 0
 
-  while (this.roundNumber < this.numberOfRounds) {
-    this.playRound();
+  while (roundNumber < this.numberOfRounds) {
+    console.log(`playing round: ${roundNumber}`)
+    roundNumber = this.playRound(roundNumber);
   }
 
   console.log('Game over!');
@@ -65,12 +64,9 @@ Game.prototype.startGame = function () {
 
 /////// Play Round workflow ///////
 
-Game.prototype.playRound = function () {
-  this.currentQuestion = this.selectionForGame[this.roundNumber];
-  let questionData = {
-    name: this.currentQuestion.name,
-    hello: this.currentQuestion.hello
-  }
+Game.prototype.playRound = function (roundNumber) {
+  let currentQuestion = this.selectionForGame[roundNumber];
+  let questionData = { name: currentQuestion.name, hello: currentQuestion.hello }
 
   PubSub.publish('Game:question-data-ready', questionData);
 
@@ -85,7 +81,8 @@ Game.prototype.playRound = function () {
     PubSub.publish('ResultView:result-ready', result);
   });
 
-  this.roundNumber ++;
+  roundNumber += 1
+  return roundNumber;
 };
 
 Game.prototype.evaluateAnswer = function (answer) {
