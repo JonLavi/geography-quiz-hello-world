@@ -15,7 +15,7 @@ const sample_data = require('../data/dummy.js')
 
 const Countries = function () {
   this.apiCountries = [];
-  this.hellos = [];
+  this.hellos = []
   this.holder = []
 
 };
@@ -31,8 +31,18 @@ Countries.prototype.getCountriesAPIData = function () {
     this.holder = filteredCountries
     PubSub.publish('Countries:game-data', this.holder)
   })
+}
 
-};
+  // Countries.prototype.getHellos = function () {
+  //   const requestHelper = new Request('http://localhost:3000/api/hellos');
+  //   const myPromise = requestHelper.get()
+  //   myPromise.then((data) => {
+  //     this.hellos = data
+  //     PubSub.publish('Countries:hellos-loaded', data);
+  //   })
+  //     .catch(console.error);
+  // };
+
 
 Countries.prototype.filterData = function (apiData, sampleData) {
   // debugger
@@ -48,13 +58,6 @@ Countries.prototype.filterData = function (apiData, sampleData) {
   })
 return filteredObjectArray
 };
-
-
-
-
-
-
-
 
 
 

@@ -12,5 +12,10 @@ db.hellos.insertMany([{
 {
   name: "Germany",
   hello: "guten tag"
+},
+{
+  name: "Netherlands",
+  hello: "test"
 }
+
 ]);

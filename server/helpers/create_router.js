@@ -1,17 +1,16 @@
 const express = require('express');
 const ObjectID = require('mongodb').ObjectID; // used to transform Ids from String to ObjectID 'class';
-
+// header('Access-Control-Allow-Origin: *');
 const createRouter = function (collection) { // takes the database collection to work with it
 
   const router = express.Router(); // listening to localhost/api/games
 
   // index
-  router.get('/', (req, res) => { // request is just index, response is asking mongodb to give all games
+  router.get('/', (req, res) => {
     collection
-      .find() // asking for all games in the collection
-      .toArray() // make it come back as array
-      .then((docs) => res.json(docs)) // 'docs' is the result of collection.find()
-      .catch(console.error) // documents is the array of objects, turn to JSON
+      .find()
+      .toArray()
+      .then((docs) => res.json(docs))
   })
 
   // show
