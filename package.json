@@ -1,29 +1,33 @@
 {
-  "name": "name",
+  "name": "hello-world-javascript-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server:dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katharina01099/Hello-World-Javascript-project.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katharina01099/Hello-World-Javascript-project/issues"
+  },
+  "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme",
   "devDependencies": {
-    "nodemon": "1.18.9",
-<<<<<<< HEAD
+    "nodemon": "^1.18.9",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
-=======
-    "webpack": "4.29.0",
-    "webpack-cli": "3.2.1"
->>>>>>> dbbfda43d95b2f08706a97a35afc755c495cf1d0
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "mongodb": "3.1.12"
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13",
+    "node-fetch": "^2.3.0"
   }
 }
