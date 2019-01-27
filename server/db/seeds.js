@@ -6,7 +6,7 @@ db.hellos.insertMany([
   {name: "Spain", hello: "hola"},
   {name: "Germany", hello: "guten tag"},
   {name: "Netherlands", hello: "Hallo"},
-  
+
   {name: "Ukraine", hello: "Dobriy den"},
   {name: "Protugal", hello: "Olá"},
   {name: "Denmark", hello: "Hej"},
@@ -34,16 +34,15 @@ db.hellos.insertMany([
   {name: "Serbia", hello: "Zdravo"},
   {name: "Slovenia", hello: "Živjo"},
   {name: "Georgia", hello: "Komentari"},
-  {name: "Welsh", hello: "Helo"},
-  {name: "Albania ", hello:P"ërshëndetje"},
+  {name: "Welsh", hello: "Helo"}, // "not a country"
+  {name: "Albania ", hello: "Përshëndetje"},
   {name: "Armenia", hello: "Barev Dzez"},
 
   {name: "Frisian", hello: "Goeie dei"},
 
   {name: "Turkey", hello: "Merhaba"},
   {name: "Russia", hello: "Zdravstvuyte"},
-  {name: "The Netherlands", hello: "Hallo"},
-  {name: "Luxembourg", hello: "Moïen"},
+  {name: "Luxembourg", hello: "Moïen"}, // also german and french
   {name: "Basque", hello: "Kaixo"},
   {name: "Czech Republic", hello: "Ahoj"},
 ]);
