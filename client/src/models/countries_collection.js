@@ -22,6 +22,7 @@ const Countries = function () {
 
 
 Countries.prototype.getCountriesAPIData = function () {
+
   const requestHelper = new Request('https://restcountries.eu/rest/v2/all');
   const myPromise = requestHelper.get()
   myPromise.then((data) => {
@@ -33,15 +34,13 @@ Countries.prototype.getCountriesAPIData = function () {
   })
 }
 
-  // Countries.prototype.getHellos = function () {
-  //   const requestHelper = new Request('http://localhost:3000/api/hellos');
-  //   const myPromise = requestHelper.get()
-  //   myPromise.then((data) => {
-  //     this.hellos = data
-  //     PubSub.publish('Countries:hellos-loaded', data);
-  //   })
-  //     .catch(console.error);
-  // };
+  Countries.prototype.bindEvents = function () {
+    PubSub.subscribe('Hello:data-loaded', (event) => {
+      let helloData = event.detail;
+      console.log('Hello Data:', helloData);
+      helloData = this.hellos
+    })
+  }
 
 
 Countries.prototype.filterData = function (apiData, sampleData) {

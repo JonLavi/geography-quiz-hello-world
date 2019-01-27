@@ -6,7 +6,7 @@ const GameData = function () {
 GameData.prototype.bindEvents = function () {
   PubSub.subscribe('Countries:game-data', (event) => {
     const gameData = event.detail;
-    console.log('Country Game Data:', gameData);
+    console.log('GameData', gameData);
   });
 };
 

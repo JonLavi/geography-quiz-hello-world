@@ -3,32 +3,23 @@ const PubSub = require('../helpers/pub_sub.js');
 const fetch = require('node-fetch');
 
 const Hello = function () {
-  this.hellos = []
-  this.url = 'http://localhost:3000/api/hellos'
+  this.url = 'http://localhost:3000/api/hellos';
+  this.request = new Request(this.url);
 };
 
-Hello.prototype.bindEvents = function () {
-  PubSub.subscribe('Hello:data-loaded', (event) => {
-    const inputtedText = event.detail;
-      console.log('payload received in Hello:', country.hello);
-    }
-
-  });
+Hello.prototype.getData = function () {
+  this.request.get()
+    .then((hellos) => {
+      PubSub.publish('Hello:data-loaded', hellos);
+    })
+    .catch(console.error);
 };
 
 
 
 
 
-Hello.prototype.getHellos = function () {
 
-  fetch('http://localhost:3000/api/hellos')
-  .then((hellos) => {
-    PubSub.publish('Hello:data-loaded', hellos)
-
-  })
-  .catch(console.error);
-  };
 
   // const request = new Request(this.url)
   //   request.get()
