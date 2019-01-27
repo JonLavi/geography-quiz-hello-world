@@ -50,7 +50,7 @@ Game.prototype.displayNewQuestion = function () {
 
 /////// Check answer workflow ///////
 
-Game.prototype.evaluateAnswer = function () {
+Game.prototype.evaluateAnswer = function (answer) {
   if (this.currentQuestion.capital.toLowerCase() === answer.toLowerCase()){
     return true;
   } else {
