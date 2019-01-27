@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const container = document.querySelector('#map')
   const viewer = new WebGLView(container, [55,0])
+
   viewer.initialiseWebGL()
 
-  viewer.TestBindAnswerEvents()
+  // viewer.TestBindAnswerEvents()
 
 
   const gameData = new GameData
