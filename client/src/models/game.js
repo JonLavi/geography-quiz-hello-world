@@ -3,7 +3,6 @@ const dummyGameData = require('../data/dummy_game_data.js')
 
 const Game = function () {
   this.countries_data = []
-  this.selectionForGame = []
   this.numberOfRounds = 3
   this.score = 0
 };
