@@ -15,11 +15,11 @@ Game.prototype.bindEvents = function () {
     this.countries_data = dummyGameData // substitude data from server with dummy
     this.prepareGame();
 
-    this.displayNewQuestion();
-
+    const currentQuestionData = this.makeNewQuestion(this.selectionForGame);
+    PubSub.publish('Game:question-data-ready', currentQuestionData);
 
     PubSub.subscribe('AnswerView:answer-submitted', (evt) => {
-      result = this.evaluateAnswer(evt.detail);
+      result = this.evaluateAnswer(currentQuestionData, evt.detail);
       PubSub.publish('Game:result-ready', result);
 
       this.givePoints(result, this.score);
@@ -34,24 +34,27 @@ Game.prototype.bindEvents = function () {
 };
 
 
-Game.prototype.displayNewQuestion = function () {
+Game.prototype.makeNewQuestion = function (questionPool) {
 
-  if (this.selectionForGame.length = 0) {
+  let currentQuestion = []
+
+  if (questionPool.length = 0) {
     console.log('game over!'); // workflow for complete game would go here
   } else {
-    let this.currentQuestion = this.selectionForGame[0];
-    let questionData = { name: this.currentQuestion.name, hello: this.currentQuestion.hello }
-    PubSub.publish('Game:question-data-ready', questionData);
-    this.selectionForGame.shift();
+    currentQuestion = questionPool[0];
+    let currentQuestionData = { name: currentQuestion.name, hello: currentQuestion.hello }
+    questionPool.shift();
   }
+
+  return currentQuestionData
 
 };
 
 
 /////// Check answer workflow ///////
 
-Game.prototype.evaluateAnswer = function (answer) {
-  if (this.currentQuestion.capital.toLowerCase() === answer.toLowerCase()){
+Game.prototype.evaluateAnswer = function (currentQuestionData, answer) {
+  if (currentQuestionData.capital.toLowerCase() === answer.toLowerCase()){
     return true;
   } else {
     return false;
