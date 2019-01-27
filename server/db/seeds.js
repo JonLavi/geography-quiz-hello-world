@@ -15,7 +15,7 @@ db.hellos.insertMany([
   {name: "Bulgaria", hello: "Zdraveĭte"},
   {name: "Iceland", hello: "Góðan dag"},
   {name: "Hungary", hello: "Jó napot"},
-  {name: "Greece", hello: "Geia sas}",
+  {name: "Greece", hello: "Geia sas"},
   {name: "Lithuania", hello: "Sveiki"},
   {name: "Finnland", hello: "Hei"},
   {name: "Norway", hello: "Hallo"},
