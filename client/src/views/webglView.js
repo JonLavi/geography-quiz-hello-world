@@ -21,7 +21,7 @@ WebGLView.prototype.initialiseWebGL = function () {
       scrollWheelZoom: true
     });
 
-    var baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+    const baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
       tileSize: 256,
       bounds: [[-85, -180], [85, 180]],
       minZoom: 0,
@@ -33,12 +33,19 @@ WebGLView.prototype.initialiseWebGL = function () {
     // var osm = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     //   attribution: '© OpenStreetMap contributors'
     // }).addTo(map);
+    PubSub.subscribe('Countries:game-data', (event) => {
+      this.gameData = event.detail[0];
+      console.log('TestGameData', this.gameData)
+
+    const marker = WE.marker(this.gameData.latlng).addTo(map);
+    marker.bindPopup(`<b>${this.gameData.name}<br><img src='${this.gameData.flag}' height='40' width='60'><br>Capital: ${this.gameData.capital}<br>Population: ${this.gameData.population}<br>Currency: ${this.gameData.currencies[0].name}</b>`, {maxWidth: 150, closeButton: false});
+
+  });
 
 
-    var marker = WE.marker([46, 2]).addTo(map);
-    marker.bindPopup("<b>France<br><img src='https://restcountries.eu/data/fra.svg' height='40' width='60'><br>Capital: Paris<br>Population: 66710000<br>Currency: Euro</b>", {maxWidth: 150, closeButton: false});
-    //
-    // var before = null;
+    //ANIMATION
+
+    // const before = null;
     //         requestAnimationFrame(function animate(now) {
     //             var c = map.getPosition();
     //             var elapsed = before? now - before: 0;
@@ -46,7 +53,6 @@ WebGLView.prototype.initialiseWebGL = function () {
     //             map.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
     //             requestAnimationFrame(animate);
     //         });
-
 
 
 }
@@ -60,7 +66,7 @@ WebGLView.prototype.panTo = function (coords) {
   WebGLView.prototype.TestBindAnswerEvents = function () {
     PubSub.subscribe('Countries:game-data', (event) => {
       this.gameData = event.detail[0];
-      console.log('TestGameData', this.gameData);
+      // console.log('TestGameData', this.gameData);
 
     });
   };
