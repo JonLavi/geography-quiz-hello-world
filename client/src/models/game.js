@@ -3,27 +3,73 @@ const dummyGameData = require('../data/dummy_game_data.js')
 
 const Game = function () {
   this.countries_data = []
-  this.numberOfRounds = 3
   this.selectionForGame = []
+  this.numberOfRounds = 3
+  this.currentQuestion = []
+  this.score = 0
 };
 
 Game.prototype.bindEvents = function () {
   // PubSub.subscribe('Countries:game-data', (evt) => {
     // this.countries_data = evt.detail;
-
-    this.countries_data = dummyGameData
-
+    this.countries_data = dummyGameData // substitude data from server with dummy
     this.prepareGame();
 
-    this.startGame();
+    this.displayNewQuestion();
+
+
+    PubSub.subscribe('AnswerView:answer-submitted', (evt) => {
+      result = this.evaluateAnswer(evt.detail);
+      PubSub.publish('Game:result-ready', result);
+
+      this.givePoints(result, this.score);
+      PubSub.publish('Game:score-given', this.score);
+    });
+
+    PubSub.subscribe('NexQuestionView:button-pressed', (evt) => {
+      this.displayNewQuestion();
+    });
+
+
+
   // })
 };
+
+
+Game.prototype.displayNewQuestion = function () {
+
+  if (this.this.selectionForGame.length = 0) {
+    console.log('game over!');
+  } else {
+    let this.currentQuestion = this.selectionForGame[0];
+    let questionData = { name: this.currentQuestion.name, hello: this.currentQuestion.hello }
+    PubSub.publish('Game:question-data-ready', questionData);
+    this.selectionForGame.shift();
+  }
+
+};
+
+
+/////// Check answer workflow ///////
+
+Game.prototype.evaluateAnswer = function () {
+  if (this.currentQuestion.capital.toLowerCase() === answer.toLowerCase()){
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Game.prototype.givePoints = function (result, score) {
+  if (result) { score += 1};
+};
+
 
 /////// Prepare game workflow ///////
 
 Game.prototype.prepareGame = function () {
   const shuffledCountries = this.shuffleCountries(this.countries_data);
-  this.selectionForGame = shuffledCountries.slice(0, this.numberOfRounds );
+  this.selectionForGame = shuffledCountries.slice(0, this.numberOfRounds);
 };
 
 Game.prototype.shuffleCountries = function(countriesArray) {
@@ -43,55 +89,6 @@ Game.prototype.shuffleCountries = function(countriesArray) {
 
   return countriesArray;
 }
-
-
-
-/////// Start game  ///////
-
-Game.prototype.startGame = function () {
-  let roundNumber = 0
-
-  while (roundNumber < this.numberOfRounds) {
-    console.log(`playing round: ${roundNumber}`)
-    roundNumber = this.playRound(roundNumber);
-  }
-
-  console.log('Game over!');
-};
-
-
-
-
-/////// Play Round workflow ///////
-
-Game.prototype.playRound = function (roundNumber) {
-  let currentQuestion = this.selectionForGame[roundNumber];
-  let questionData = { name: currentQuestion.name, hello: currentQuestion.hello }
-
-  PubSub.publish('Game:question-data-ready', questionData);
-
-  // PubSub.subscribe('SkipView:skip-button-pressed', () => {
-  //   roundNumber ++;
-  //   // end round, increase round number, start new round
-  // });
-
-  PubSub.subscribe('InputView:answer-submitted', (evt) => {
-    result = this.evaluateAnswer(evt.detail);
-
-    PubSub.publish('ResultView:result-ready', result);
-  });
-
-  roundNumber += 1
-  return roundNumber;
-};
-
-Game.prototype.evaluateAnswer = function (answer) {
-  if (this.currentQuestion.capital.toLowerCase() === answer.toLowerCase()){
-    return true;
-  } else {
-    return false;
-  }
-};
 
 
 
