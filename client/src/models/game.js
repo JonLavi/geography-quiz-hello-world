@@ -5,7 +5,6 @@ const Game = function () {
   this.countries_data = []
   this.selectionForGame = []
   this.numberOfRounds = 3
-  this.currentQuestion = []
   this.score = 0
 };
 
@@ -13,9 +12,9 @@ Game.prototype.bindEvents = function () {
   // PubSub.subscribe('Countries:game-data', (evt) => {
     // this.countries_data = evt.detail;
     this.countries_data = dummyGameData // substitude data from server with dummy
-    this.prepareGame();
+    const questionsForGame = this.prepareGame(this.countries_data, this.numberOfRounds);
 
-    const currentQuestionData = this.makeNewQuestion(this.selectionForGame);
+    const currentQuestionData = this.makeNewQuestion(questionsForGame);
     PubSub.publish('Game:question-data-ready', currentQuestionData);
 
     PubSub.subscribe('AnswerView:answer-submitted', (evt) => {
@@ -68,9 +67,9 @@ Game.prototype.givePoints = function (result, score) {
 
 /////// Prepare game workflow ///////
 
-Game.prototype.prepareGame = function () {
-  const shuffledCountries = this.shuffleCountries(this.countries_data);
-  this.selectionForGame = shuffledCountries.slice(0, this.numberOfRounds);
+Game.prototype.prepareGame = function (arrayOfCountries, numberOfRounds) {
+  const shuffledCountries = this.shuffleCountries(arrayOfCountries);
+  return shuffledCountries.slice(0, numberOfRounds);
 };
 
 Game.prototype.shuffleCountries = function(countriesArray) {
