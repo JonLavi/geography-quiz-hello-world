@@ -27,7 +27,7 @@ Countries.prototype.getCountriesAPIData = function () {
   const myPromise = requestHelper.get()
   myPromise.then((data) => {
     this.apiCountries = data
-    filteredCountries = this.filterData(this.apiCountries, sample_data)
+    filteredCountries = this.filterData(this.apiCountries, this.hellos[0])
     console.log('filtered',filteredCountries);
     this.holder = filteredCountries
     PubSub.publish('Countries:game-data', this.holder)
@@ -35,11 +35,14 @@ Countries.prototype.getCountriesAPIData = function () {
 }
 
   Countries.prototype.bindEvents = function () {
+    let helloData = []
     PubSub.subscribe('Hello:data-loaded', (event) => {
-      let helloData = event.detail;
+      helloData = event.detail;
       console.log('Hello Data:', helloData);
-      helloData = this.hellos
+      this.hellos.push(helloData)
+      
     })
+
   }
 
 
