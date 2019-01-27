@@ -26,20 +26,18 @@ Game.prototype.bindEvents = function () {
       PubSub.publish('Game:score-given', this.score);
     });
 
-    PubSub.subscribe('NexQuestionView:button-pressed', (evt) => {
+    PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
       this.displayNewQuestion();
     });
 
-
-
-  // })
+  // });
 };
 
 
 Game.prototype.displayNewQuestion = function () {
 
-  if (this.this.selectionForGame.length = 0) {
-    console.log('game over!');
+  if (this.selectionForGame.length = 0) {
+    console.log('game over!'); // workflow for complete game would go here
   } else {
     let this.currentQuestion = this.selectionForGame[0];
     let questionData = { name: this.currentQuestion.name, hello: this.currentQuestion.hello }
