@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+
 const ButtonView = function(button){
   this.button = button;
 }

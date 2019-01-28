@@ -60,7 +60,6 @@ Game.prototype.makeNewQuestion = function (questionPool) {
   }
 
   return currentQuestion
-
 };
 
 
