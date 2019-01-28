@@ -1,4 +1,8 @@
-/* 
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Sarabun');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto');
+
+/*
 body {
 
 }
@@ -49,13 +53,12 @@ button.next-button {
   border: none;
   padding: 0
 }
-======= */
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto');
+ */
+
 
 body {
   background-image: url('../images/Background.jpg');
   height: 100%;
-  font-family: 'Indie Flower', cursive;
   color: white;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,20 +66,31 @@ body {
 }
 
 h1 {
-  font-size: 70px;
-  border: 0px;
-  margin: 0px;
-  padding: 0px;
+  font-size: 94px;
+ padding: 5px;
+ font-family: 'Whale I tried';
+ color: #EF767A;
 }
+
+h2, h3 {
+  font-size: 54px;
+ padding: 5px;
+ font-family: 'Pacifico';
+ color: #FFE347;
+}
+
+p {
+  font-size: 54px;
+ padding: 10px;
+ font-family: 'Sarabun';
+ color: #783F8E;
+}
+
 
 b {
   color: black;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-}
 
 #quiz {
   width: 35%;
