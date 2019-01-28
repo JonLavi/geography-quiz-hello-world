@@ -36,6 +36,11 @@ b {
   height: 660px;
 }
 
+#question-view{
+  border-style: solid;
+  border-color: white;
+}
+
 
 input[type=text] {
   -webkit-transition: width 0.4s ease-in-out;
