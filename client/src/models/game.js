@@ -10,9 +10,10 @@ const Game = function () {
 Game.prototype.bindEvents = function () {
   // PubSub.subscribe('Countries:game-data', (evt) => {
     // this.countries_data = evt.detail;
+
     this.countries_data = dummyGameData // substitude data from server with dummy
     const questionsForGame = this.prepareGame(this.countries_data, this.numberOfRounds);
-
+    debugger
     const currentQuestionData = this.makeNewQuestion(questionsForGame);
     PubSub.publish('Game:question-data-ready', currentQuestionData);
 
@@ -25,7 +26,7 @@ Game.prototype.bindEvents = function () {
     });
 
     PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
-      this.displayNewQuestion();
+      this.makeNewQuestion();
     });
 
   // });
@@ -34,11 +35,12 @@ Game.prototype.bindEvents = function () {
 
 Game.prototype.makeNewQuestion = function (questionPool) {
 
-  let currentQuestion = []
+  let currentQuestion = {};
 
-  if (questionPool.length = 0) {
+  if (questionPool.length === 0) {
     console.log('game over!'); // workflow for complete game would go here
   } else {
+    console.log(questionPool[0]);
     currentQuestion = questionPool[0];
     let currentQuestionData = { name: currentQuestion.name, hello: currentQuestion.hello }
     questionPool.shift();
