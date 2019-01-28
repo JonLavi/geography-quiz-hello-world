@@ -1,6 +1,7 @@
 use hello_world;
 db.dropDatabase();
 
+<<<<<<< HEAD
 db.hellos.insertMany([
   {name: "France", hello: "bonjour"},
   {name: "Spain", hello: "hola"},
@@ -44,4 +45,23 @@ db.hellos.insertMany([
   {name: "Turkey", hello: "Merhaba"},
   {name: "Russia", hello: "Zdravstvuyte"},
   {name: "Belarus", hello: "Zdravstvujtie"},
+=======
+db.hellos.insertMany([{
+  name: "France",
+  hello: "bonjour"
+},
+{
+  name: "Spain",
+  hello: "hola"
+},
+{
+  name: "Germany",
+  hello: "guten tag"
+},
+{
+  name: "Netherlands",
+  hello: "test"
+}
+
+>>>>>>> develop
 ]);
