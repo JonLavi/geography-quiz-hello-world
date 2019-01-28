@@ -1,7 +1,13 @@
 const express = require('express');
+<<<<<<< HEAD
 const ObjectID = require('mongodb').ObjectID;
 
 const createRouter = function (collection) {
+=======
+const ObjectID = require('mongodb').ObjectID; // used to transform Ids from String to ObjectID 'class';
+// header('Access-Control-Allow-Origin: *');
+const createRouter = function (collection) { // takes the database collection to work with it
+>>>>>>> develop
 
   const router = express.Router();
 
@@ -11,7 +17,10 @@ const createRouter = function (collection) {
       .find()
       .toArray()
       .then((docs) => res.json(docs))
+<<<<<<< HEAD
       .catch(console.error)
+=======
+>>>>>>> develop
   })
 
   // show
