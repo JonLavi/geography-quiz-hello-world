@@ -19,7 +19,7 @@ const inputForm = document.querySelector('section#input-form')
 const inputFormView = new InputView(inputForm)
 inputFormView.bindEvents()
 
-const skipbutton = document.querySelector('section#controls')
+const skipbutton = document.querySelector('button#skip')
   const skipButtonView = new ButtonView(skipbutton)
   skipButtonView.bindEvents()
 
