@@ -3,7 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const Game = function () {
   this.countries_data = []
-  this.numberOfRounds = 3
+  this.numberOfRounds = 10
   this.score = 0
 };
 
@@ -23,10 +23,12 @@ Game.prototype.bindEvents = function () {
 
       this.givePoints(result, this.score);
       PubSub.publish('Game:score-given', this.score);
+      console.log('score',this.score);
     });
 
     PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
-      this.makeNewQuestion();
+      const currentQuestionData = this.makeNewQuestion(questionsForGame);
+      PubSub.publish('Game:question-data-ready', currentQuestionData);
     });
 
   })

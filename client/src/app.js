@@ -4,6 +4,7 @@ const WebGLView = require ('./views/webglView.js')
 const InputView = require ('./views/input_view.js')
 const QuestionView = require('./views/question_view.js')
 const ResultView = require('./views/result_view.js')
+const ButtonView = require('./views/button_view.js')
 
 
 const sampleData = require('./data/dummy.js')
@@ -16,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 const inputForm = document.querySelector('section#input-form')
 const inputFormView = new InputView(inputForm)
 inputFormView.bindEvents()
+
+const skipbutton = document.querySelector('section#controls')
+  const skipButtonView = new ButtonView(skipbutton)
+  skipButtonView.bindEvents()
 
 
   const container = document.querySelector('#map')
