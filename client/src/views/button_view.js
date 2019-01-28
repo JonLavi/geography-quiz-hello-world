@@ -18,13 +18,10 @@ ButtonView.prototype.bindEvents = function () {
   });
 }
 
-ButtonView.prototype.switchButtonState = function () {
-  state = this.button.value;
-  if (state === 'skip') {
-    this.button.value = 'next';
-  } else {
-    this.button.value = 'skip';
-  }
+ButtonView.prototype.renderButton = function (state) {
+	this.button.id = state
+  this.button.value = state;
+  this.button.textContent = state;
 };
 
 module.exports = ButtonView
