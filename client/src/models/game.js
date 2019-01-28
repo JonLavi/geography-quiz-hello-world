@@ -56,7 +56,8 @@ Game.prototype.makeNewQuestion = function (questionPool) {
   } else {
     currentQuestion = questionPool[0];
     questionPool.shift();
-    console.log('Current question data',currentQuestion);
+    console.log('Current question data',currentQuestion)
+    PubSub.publish('Game:current-question', currentQuestion)
   }
 
   return currentQuestion
