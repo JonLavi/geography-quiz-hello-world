@@ -15,7 +15,6 @@ ButtonView.prototype.switchButtonState = function () {
   state = this.button.value;
   if (state === 'skip') {
     this.button.value = 'next';
-    
   } else {
     this.button.value = 'skip';
   }
