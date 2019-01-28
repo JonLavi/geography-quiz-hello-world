@@ -3,18 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
-<<<<<<< HEAD
-  "dependencies": {
-    "express": "^4.16.4",
-    "mongodb": "^3.1.13",
-    "nodemon": "^1.18.9",
-    "webpack-cli": "^3.2.1"
-  },
-  "devDependencies": {
-    "webpack": "^4.29.0"
-  },
-=======
->>>>>>> b78ac2139a7c8b0d7a4b4eab09e4c87ad1961e7e
   "scripts": {
     "start": "node server/server.js",
     "server:dev": "nodemon server/server.js",
@@ -29,10 +17,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/katharina01099/Hello-World-Javascript-project/issues"
-<<<<<<< HEAD
-  },
-  "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme"
-=======
   },
   "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme",
   "devDependencies": {
@@ -46,5 +30,4 @@
     "mongodb": "^3.1.13",
     "node-fetch": "^2.3.0"
   }
->>>>>>> b78ac2139a7c8b0d7a4b4eab09e4c87ad1961e7e
 }

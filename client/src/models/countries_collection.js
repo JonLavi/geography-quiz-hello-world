@@ -49,21 +49,7 @@ return filteredObjectArray
 };
 
 
-<<<<<<< HEAD
-CountriesCollection.prototype.combineData = function (){
-  const countryHellos = this.hellos;
-  let countryApiData = this.countries;
-  countryApiData.forEach((apiCountry) => {
-    countryHellos.forEach((helloCountry) =>{
-      if (apiCountry.name === helloCountry.name){
-        apiCountry.hello = helloCountry.hello;
-      }
-    })
-  })
-  return countryApiData;
-};
-=======
->>>>>>> b78ac2139a7c8b0d7a4b4eab09e4c87ad1961e7e
+
 
 
 module.exports = Countries

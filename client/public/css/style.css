@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/* 
 body {
 
 }
@@ -49,7 +49,7 @@ button.next-button {
   border: none;
   padding: 0
 }
-=======
+======= */
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto');
 
 body {
@@ -111,8 +111,3 @@ input[type=text] {
 input[type=text]:focus {
   width: 70%;
 }
-
-
-font-family: 'Indie Flower', cursive;
-font-family: 'Roboto', sans-serif;
->>>>>>> b78ac2139a7c8b0d7a4b4eab09e4c87ad1961e7e
