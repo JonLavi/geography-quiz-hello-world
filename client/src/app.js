@@ -1,7 +1,11 @@
 const Countries = require ('./models/countries_collection.js')
 const Hello = require ('./models/hello_collection.js')
 const WebGLView = require ('./views/webglView.js')
+<<<<<<< HEAD
 const InputView = require ('./views/input_view.js')
+=======
+const QuestionView = require('./views/question_view.js')
+>>>>>>> develop
 
 const sampleData = require('./data/dummy.js')
 const Game = require('./models/game.js')
@@ -17,7 +21,12 @@ inputFormView.bindEvents()
 
   const container = document.querySelector('#map')
   const viewer = new WebGLView(container, [55,0])
+<<<<<<< HEAD
   viewer.initialiseWebGL()
+=======
+
+  // viewer.initialiseWebGL()
+>>>>>>> develop
   // viewer.TestBindAnswerEvents()
   // viewer.exlporationMode()
 
@@ -36,7 +45,8 @@ inputFormView.bindEvents()
   const hellos = new Hello;
   hellos.getData()
 
-
-
+  const questionSection = document.querySelector('section#question');
+  const questionView = new QuestionView(questionSection);
+  questionView.bindEvents();
 
 });
