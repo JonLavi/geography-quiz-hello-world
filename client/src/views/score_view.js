@@ -10,7 +10,12 @@ ScoreView.prototype.bindEvents = function () {
   })
 };
 
-
+ScoreView.prototype.renderScore = function (score) {
+  this.container.innerHTML = '';
+  const scoreItem = document.createElement('p');
+  scoreItem.textContent = `Score: ${score}`;
+  this.container.appendChild(scoreItem)
+};
 
 
 module.exports = ScoreView;
