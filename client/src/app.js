@@ -5,6 +5,7 @@ const InputView = require ('./views/input_view.js')
 const QuestionView = require('./views/question_view.js')
 const ResultView = require('./views/result_view.js')
 
+
 const sampleData = require('./data/dummy.js')
 const Game = require('./models/game.js')
 
@@ -19,6 +20,11 @@ inputFormView.bindEvents()
 
   const container = document.querySelector('#map')
   const viewer = new WebGLView(container, [55,0])
+
+
+  viewer.initialiseWebGL()
+
+
   // viewer.initialiseWebGL()
   // viewer.TestBindAnswerEvents()
   // viewer.exlporationMode()

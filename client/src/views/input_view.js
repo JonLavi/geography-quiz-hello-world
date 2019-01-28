@@ -13,6 +13,7 @@ InputView.prototype.bindEvents = function () {
 InputView.prototype.handleSubmit = function (evt) {
   evt.preventDefault()
   PubSub.publish('AnswerView:answer-submitted', evt.target.input.value)
+  console.log('Answer check', evt.target.input.value);
   evt.target.reset();
 };
 module.exports = InputView;
