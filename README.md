@@ -24,27 +24,19 @@ Set up for running the code locally:
 # Git Workflow:
 
  - branch off develop:
- 
       > git checkout develop
- 
-      > git checkout -b (feature/name-of-my-feature)
 
-- work only in (feature/name-of-my-feautre)
- 
-- git pull from develop into your feature branch
-      
-     > git checkout feature/name-of-my-feature
-      
-     > git merge develop
- 
+      > get checkout -b (feature/name-of-my-feature)
+
+ - work only in (feature/name-of-my-feautre)
+
+ - git pull from develop into your feature branch
+      > git checkout feature/name-of-my-feature
+
+      > git merge develop
+
  - change into develop branch
-      
      > git checkout develop
-      
+
  - merge in the changes from your feature branch
-      
      > git merge feature/name-of-my-feature
-      
-      
-      
-      
