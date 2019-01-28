@@ -14,7 +14,6 @@ ResultView.prototype.renderResult = function (result) {
   console.log('result:', result );
   const resultItem = this.createResultParagraph(result)
   this.container.appendChild(resultItem)
-
 };
 
 ResultView.prototype.createResultParagraph = function (result) {

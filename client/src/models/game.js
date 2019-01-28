@@ -42,12 +42,11 @@ Game.prototype.makeNewQuestion = function (questionPool) {
   } else {
     console.log('Current question object',questionPool[0]);
     currentQuestion = questionPool[0];
-    currentQuestionData = { name:currentQuestion.name, capital: currentQuestion.capital, hello: currentQuestion.hello }
     questionPool.shift();
-    console.log('Current question data',currentQuestionData);
+    console.log('Current question data',currentQuestion);
   }
 
-  return currentQuestionData
+  return currentQuestion
 
 };
 
