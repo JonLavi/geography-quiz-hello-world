@@ -9,12 +9,40 @@
 
     <title>hello world</title>
 
+
+
   </head>
   <body>
-      <h1>&ltHello World&gt;</h1>
-      <hr>
-      <div class="flex-container">
-        <div id="quiz">
+
+    <style>
+.grid-container {
+display: grid;
+grid-template-columns: auto auto;
+padding: 10px;
+}
+.grid-item {
+border: 1px solid rgba(0, 0, 0, 0.8);
+padding: 20px;
+font-size: 30px;
+text-align: center;
+}
+</style>
+
+
+
+      <div class="grid-container">
+
+      <div class="grid-item">
+        <h1>Hello World</h1>
+      </div>
+
+      <div class="grid-item">
+
+        </div>
+
+        <div
+         class="grid-item"
+         id="quiz"
             <section id ="question">
                 <h2>Question Section</h2>
             </section>
@@ -43,9 +71,10 @@
             </section>
 
         </div>
-        <div id="map">
 
-
+        <div>
+        <div class="grid-item"
+        id="map"
         </div>
 
 

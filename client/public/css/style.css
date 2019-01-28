@@ -3,14 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto');
 
 /*
-body {
-
-}
-
-h1, h2, h3 {
-  padding: 10px;
-  color: blue;
-}
 
 input[type+text] {
   border-radius: 3px;
@@ -57,12 +49,8 @@ button.next-button {
 
 
 body {
-  background-image: url('../images/Background.jpg');
-  height: 100%;
+  background-image: url('images/board.jpg');
   color: white;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 h1 {
