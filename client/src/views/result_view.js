@@ -10,6 +10,9 @@ ResultView.prototype.bindEvents = function () {
   });
 };
 
+ResultView.prototype.renderResult = function (result) {
+  console.log('result');
+};
 
 
 module.exports = ResultView;
