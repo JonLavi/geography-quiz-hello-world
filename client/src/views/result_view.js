@@ -1,4 +1,4 @@
-const PubSub = require('PubSub');
+const PubSub = require('../helpers/pub_sub.js');
 
 const ResultView = function (container) {
   this.container = container;
@@ -11,7 +11,7 @@ ResultView.prototype.bindEvents = function () {
 };
 
 ResultView.prototype.renderResult = function (result) {
-  console.log('result');
+  console.log('result:', result );
 };
 
 

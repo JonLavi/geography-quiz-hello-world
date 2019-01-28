@@ -42,7 +42,7 @@ Game.prototype.makeNewQuestion = function (questionPool) {
   } else {
     console.log('Current question object',questionPool[0]);
     currentQuestion = questionPool[0];
-    currentQuestionData = { capital: currentQuestion.capital, hello: currentQuestion.hello }
+    currentQuestionData = { name:currentQuestion.name, capital: currentQuestion.capital, hello: currentQuestion.hello }
     questionPool.shift();
     console.log('Current question data',currentQuestionData);
   }
@@ -55,7 +55,7 @@ Game.prototype.makeNewQuestion = function (questionPool) {
 /////// Check answer workflow ///////
 
 Game.prototype.evaluateAnswer = function (currentQuestionData, answer) {
-  if (currentQuestionData.capital.toLowerCase() === answer.toLowerCase()){
+  if (currentQuestionData.name.toLowerCase() === answer.toLowerCase()){
     return true;
   } else {
     return false;
