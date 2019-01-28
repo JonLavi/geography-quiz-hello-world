@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+<<<<<<< HEAD
   "dependencies": {
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
@@ -12,10 +13,12 @@
   "devDependencies": {
     "webpack": "^4.29.0"
   },
+=======
+>>>>>>> b78ac2139a7c8b0d7a4b4eab09e4c87ad1961e7e
   "scripts": {
     "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server:dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w"
   },
   "repository": {
@@ -26,6 +29,22 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/katharina01099/Hello-World-Javascript-project/issues"
+<<<<<<< HEAD
   },
   "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme"
+=======
+  },
+  "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13",
+    "node-fetch": "^2.3.0"
+  }
+>>>>>>> b78ac2139a7c8b0d7a4b4eab09e4c87ad1961e7e
 }
