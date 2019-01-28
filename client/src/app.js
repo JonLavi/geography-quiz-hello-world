@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const viewer = new WebGLView(container, [55,0])
 
   viewer.initialiseWebGL()
-
   // viewer.TestBindAnswerEvents()
+  // viewer.exlporationMode()
 
 
   const gameData = new GameData

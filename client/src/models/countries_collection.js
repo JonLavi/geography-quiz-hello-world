@@ -27,6 +27,7 @@ Countries.prototype.getCountriesAPIData = function () {
   const myPromise = requestHelper.get()
   myPromise.then((data) => {
     this.apiCountries = data
+    PubSub.publish('Countries:restcountriesAPI-data', this.apiCountries)
     filteredCountries = this.filterData(this.apiCountries, this.hellos[0])
     console.log('filtered',filteredCountries);
     this.holder = filteredCountries
@@ -40,7 +41,7 @@ Countries.prototype.getCountriesAPIData = function () {
       helloData = event.detail;
       console.log('Hello Data:', helloData);
       this.hellos.push(helloData)
-      
+
     })
 
   }
