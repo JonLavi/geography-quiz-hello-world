@@ -3,7 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const Game = function () {
   this.countries_data = []
-  this.numberOfRounds = 2
+  this.numberOfRounds = 10
   this.score = 0
   this.questionAnswered = false
 };
@@ -55,7 +55,7 @@ Game.prototype.makeNewQuestion = function (questionPool) {
 
   if (questionPool.length === 0) {
     PubSub.publish('Game:game-over', this.score)
-    
+
   } else {
     console.log('Current question object',questionPool[0]);
     currentQuestion = questionPool[0];
