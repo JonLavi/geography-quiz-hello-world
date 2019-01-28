@@ -12,6 +12,19 @@ ResultView.prototype.bindEvents = function () {
 
 ResultView.prototype.renderResult = function (result) {
   console.log('result:', result );
+  const resultItem = this.createResultParagraph(result)
+  this.container.appendChild(resultItem)
+
+};
+
+ResultView.prototype.createResultParagraph = function (result) {
+  const resultParagraph = document.createElement('p');
+  if (result){
+    resultParagraph.textContent = "You are correct!"
+  } else {
+    resultParagraph.textContent = `Aww shucks, that's not quite right`
+  }
+  return resultParagraph;
 };
 
 
