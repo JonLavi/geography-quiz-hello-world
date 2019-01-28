@@ -52,6 +52,8 @@ GameOverView.prototype.renderMap = function () {
         tms: true
       }).addTo(map);
 
+
+
       let before = null;
               requestAnimationFrame(function animate(now) {
                   var c = map.getPosition();
@@ -60,6 +62,7 @@ GameOverView.prototype.renderMap = function () {
                   map.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
                   requestAnimationFrame(animate);
               })
+
   }
 
 
