@@ -17,11 +17,13 @@ ButtonView.prototype.bindEvents = function () {
   });
 }
 
-
-ButtonView.prototype.renderButton = function (state) {
-  this.button.id = state
-  this.button.value = state;
-  this.button.textContent = state;
+ButtonView.prototype.switchButtonState = function () {
+  state = this.button.value;
+  if (state === 'skip') {
+    this.button.value = 'next';
+  } else {
+    this.button.value = 'skip';
+  }
 };
 
 module.exports = ButtonView
