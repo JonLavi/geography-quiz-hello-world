@@ -12,6 +12,7 @@ QuestionView.prototype.bindEvents = function(){
 }
 
 QuestionView.prototype.renderQuestionView = function (questionDetail) {
+    this.container.innerHTML = '';
     const questionItem = this.createQuestionParagraph(questionDetail)
     this.container.appendChild(questionItem)
 };

@@ -12,6 +12,7 @@ ResultView.prototype.bindEvents = function () {
 
 ResultView.prototype.renderResult = function (result) {
   console.log('result:', result );
+  this.container.innerHTML = '';
   const resultItem = this.createResultParagraph(result)
   this.container.appendChild(resultItem)
 };
