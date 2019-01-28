@@ -42,8 +42,9 @@ Game.prototype.makeNewQuestion = function (questionPool) {
   } else {
     console.log('Current question object',questionPool[0]);
     currentQuestion = questionPool[0];
-    currentQuestionData = { name: currentQuestion.name, hello: currentQuestion.hello }
+    currentQuestionData = { capital: currentQuestion.capital, hello: currentQuestion.hello }
     questionPool.shift();
+    console.log('Current question data',currentQuestionData);
   }
 
   return currentQuestionData
