@@ -19,10 +19,23 @@ QuestionView.prototype.renderQuestionView = function (countries) {
 };
 
 QuestionView.prototype.createQuestionItem = function (country) {
-  const countryDetailView = new QuestionView();
-  const QuestionViewDetail = QuestionView.createQuestionViewDetail(country);
-  return createQuestionViewDetail
-  
+  const countryDetailView = new QuestionDetail()
+  const countryDetail = countryDetailView.createQustionDetail(country)
+  return countryDetail;
+
 };
+
+QuestionDetail.prototype.createQustionDetail = function(country){
+  const questionDetail = document.createElement('div');
+  questionDetail.classList.add('question-detail');
+
+  const country_name = document.createElement('h2');
+  country_name.textContent = country.name;
+  questionDetail.appendChild(country_name);
+
+  const country_hello = document.createElement('h3');
+  country_hello.textContent = country.hello;
+  questionDetail.appendChild(country_hello);
+}
 
 module.exports = QuestionView;

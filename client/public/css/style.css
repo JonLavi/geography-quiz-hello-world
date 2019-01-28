@@ -1,0 +1,50 @@
+body {
+
+}
+
+h1, h2, h3 {
+  padding: 10px;
+  color: blue;
+}
+
+input[type+text] {
+  border-radius: 3px;
+  padding: 3px;
+  margin: 3px;
+}
+
+input[type=submit] {
+  display: block;
+  padding: 4px 10px 6px;
+  margin: 1em 0;
+  border-color: transparent;
+  background-color:
+}
+
+.submit-button {
+
+}
+
+button.submit-button {
+background: url(../pictures/submit-button-png-25795.jpg)
+}
+
+.skip-button {
+  width: 20px;
+  height: 20px;
+}
+
+button.skip-button {
+  border: none;
+  padding: 0
+}
+
+.next-button {
+  width: 20px;
+  height: 20px;
+}
+
+button.next-button {
+  border: none;
+  padding: 0
+}
