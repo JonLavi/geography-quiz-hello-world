@@ -20,11 +20,7 @@
   },
   "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme",
   "devDependencies": {
-<<<<<<< HEAD
-    "nodemon": "1.18.9",
-=======
     "nodemon": "^1.18.9",
->>>>>>> develop
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   },
