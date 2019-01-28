@@ -1,11 +1,9 @@
 const Countries = require ('./models/countries_collection.js')
 const Hello = require ('./models/hello_collection.js')
 const WebGLView = require ('./views/webglView.js')
-<<<<<<< HEAD
 const QuestionView = require('./views/question_view.js')
-=======
 const InputView = require ('./views/input_view.js')
->>>>>>> Working input view
+
 
 const sampleData = require('./data/dummy.js')
 const Game = require('./models/game.js')
