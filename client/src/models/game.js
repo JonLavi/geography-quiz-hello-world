@@ -21,7 +21,7 @@ Game.prototype.bindEvents = function () {
     PubSub.publish('Game:question-data-ready', this.currentQuestion);
 
 
-    PubSub.subscribe('AnswerView:answer-submitted', (evt) => {
+    PubSub.subscribe('InputView:answer-submitted', (evt) => {
       if (!this.questionAnswered){
         result = this.evaluateAnswer(this.currentQuestion, evt.detail);
         PubSub.publish('Game:result-ready', result);

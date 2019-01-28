@@ -6,19 +6,17 @@ const ButtonView = function(button){
 ButtonView.prototype.bindEvents = function () {
   this.button.addEventListener('click', (evt) => {
     PubSub.publish('NextQuestionView:button-pressed', evt)
-    console.log(this.button.value)
-    this.switchButtonState();
-  })
+  });
+
+  PubSub.subscribe('InputView:answer-submitted', (evt) => {
+    this.renderButton('next');
+  });
+
+  PubSub.subscribe('Game:question-data-ready', (evt) => {
+    this.renderButton('skip');
+  });
 }
 
-ButtonView.prototype.switchButtonState = function () {
-  state = this.button.id;
-  if (state === 'skip') {
-    this.renderButton('next');
-  } else {
-    this.renderButton('skip');
-  }
-};
 
 ButtonView.prototype.renderButton = function (state) {
   this.button.id = state
