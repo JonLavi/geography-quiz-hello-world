@@ -5,6 +5,7 @@ const Game = function () {
   this.countries_data = []
   this.numberOfRounds = 3
   this.score = 0
+  this.questionAnswered = false
 };
 
 Game.prototype.bindEvents = function () {
@@ -18,11 +19,19 @@ Game.prototype.bindEvents = function () {
     PubSub.publish('Game:question-data-ready', currentQuestionData);
 
     PubSub.subscribe('AnswerView:answer-submitted', (evt) => {
-      result = this.evaluateAnswer(currentQuestionData, evt.detail);
-      PubSub.publish('Game:result-ready', result);
+      debugger
+      if (!this.questionAnswered){
+        result = this.evaluateAnswer(currentQuestionData, evt.detail);
+        PubSub.publish('Game:result-ready', result);
 
-      this.givePoints(result, this.score);
-      PubSub.publish('Game:score-given', this.score);
+        this.score = this.givePoints(result, this.score);
+        console.log('score:', this.score)
+        PubSub.publish('Game:score-given', this.score);
+        this.questionAnswered = true
+      } else {
+        console.log('You have already answered this question!')
+      }
+
     });
 
     PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
@@ -34,6 +43,7 @@ Game.prototype.bindEvents = function () {
 
 
 Game.prototype.makeNewQuestion = function (questionPool) {
+  this.questionAnswered = false;
   let currentQuestionData
   let currentQuestion = {};
 
@@ -62,7 +72,7 @@ Game.prototype.evaluateAnswer = function (currentQuestionData, answer) {
 };
 
 Game.prototype.givePoints = function (result, score) {
-  if (result) { score += 1};
+  if (result) {return score += 1};
 };
 
 
