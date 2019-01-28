@@ -1,27 +1,29 @@
 const PubSub = require('../helpers/pub_sub.js');
+// const dummyGameData = require('../data/dummy_game_data.js')
 
 const Game = function () {
   this.countries_data = []
-  this.numberOfRounds = 10
+  this.numberOfRounds = 2
   this.score = 0
   this.questionAnswered = false
 };
 
 Game.prototype.bindEvents = function () {
-
-  let currentQuestionData = {}
-
   PubSub.subscribe('Countries:game-data', (evt) => {
     this.countries_data = evt.detail;
 
+    // this.countries_data = dummyGameData // substitude data from server with dummy
     const questionsForGame = this.prepareGame(this.countries_data, this.numberOfRounds);
-    currentQuestionData = this.makeNewQuestion(questionsForGame);
+    // debugger
+    const currentQuestionData = this.makeNewQuestion(questionsForGame);
     PubSub.publish('Game:question-data-ready', currentQuestionData);
 
     PubSub.subscribe('AnswerView:answer-submitted', (evt) => {
+      // debugger
       if (!this.questionAnswered){
         result = this.evaluateAnswer(currentQuestionData, evt.detail);
         PubSub.publish('Game:result-ready', result);
+
         this.score = this.givePoints(result, this.score);
         console.log('score:', this.score)
         PubSub.publish('Game:score-given', this.score);
@@ -29,10 +31,16 @@ Game.prototype.bindEvents = function () {
       } else {
         console.log('You have already answered this question!')
       }
+
+
+      this.givePoints(result, this.score);
+      PubSub.publish('Game:score-given', this.score);
+      console.log('score',this.score);
+
     });
 
     PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
-      currentQuestionData = this.makeNewQuestion(questionsForGame);
+      const currentQuestionData = this.makeNewQuestion(questionsForGame);
       PubSub.publish('Game:question-data-ready', currentQuestionData);
     });
 
@@ -42,10 +50,12 @@ Game.prototype.bindEvents = function () {
 
 Game.prototype.makeNewQuestion = function (questionPool) {
   this.questionAnswered = false;
+  let currentQuestionData
   let currentQuestion = {};
 
   if (questionPool.length === 0) {
-    console.log('game over!'); // workflow for complete game would go here
+    PubSub.publish('Game:game-over', this.score)
+    
   } else {
     console.log('Current question object',questionPool[0]);
     currentQuestion = questionPool[0];
@@ -69,11 +79,7 @@ Game.prototype.evaluateAnswer = function (currentQuestionData, answer) {
 };
 
 Game.prototype.givePoints = function (result, score) {
-  if (result) {
-    return score += 1
-  } else {
-    return score
-  }
+  if (result) {return score += 1};
 };
 
 

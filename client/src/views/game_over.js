@@ -8,6 +8,7 @@ GameOverView.prototype.bindEvents = function () {
 
 PubSub.subscribe('Game:game-over', (evt) => {
   console.log(evt.detail);
+  // debugger
   this.renderGameOver(evt.detail)
 })
 };

@@ -6,6 +6,7 @@ const QuestionView = require('./views/question_view.js')
 const ResultView = require('./views/result_view.js')
 const ButtonView = require('./views/button_view.js')
 const ScoreView = require('./views/score_view.js')
+const GameOverView = require('./views/game_over.js')
 
 const sampleData = require('./data/dummy.js')
 const Game = require('./models/game.js')
@@ -60,5 +61,9 @@ const skipbutton = document.querySelector('section#controls')
   const scoreSection = document.querySelector('section#score');
   const scoreView = new ScoreView(scoreSection);
   scoreView.bindEvents();
+
+  const gameOver = new GameOverView;
+  gameOver.bindEvents()
+
 
 });
