@@ -35,10 +35,6 @@ Game.prototype.bindEvents = function () {
         console.log('You have already answered this question!')
       }
 
-      this.givePoints(result, this.score);
-      PubSub.publish('Game:score-given', this.score);
-      console.log('score',this.score);
-
     });
 
     PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
@@ -58,7 +54,6 @@ Game.prototype.makeNewQuestion = function (questionPool) {
     PubSub.publish('Game:game-over', this.score)
 
   } else {
-    console.log('Current question object',questionPool[0]);
     currentQuestion = questionPool[0];
     questionPool.shift();
     console.log('Current question data',currentQuestion);
@@ -80,7 +75,11 @@ Game.prototype.evaluateAnswer = function (question, answer) {
 };
 
 Game.prototype.givePoints = function (result, score) {
-  if (result) {return score += 1};
+  if (result) {
+    return score += 1
+  } else {
+    return score
+  };
 };
 
 
