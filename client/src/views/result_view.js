@@ -17,7 +17,7 @@ ResultView.prototype.bindEvents = function () {
 ResultView.prototype.renderResult = function (result) {
   console.log('result:', result );
   this.container.innerHTML = '';
-  this.createResultHeader();
+  // this.createResultHeader();
   const resultItem = this.createResultParagraph(result);
   this.container.appendChild(resultItem);
 };
@@ -32,14 +32,11 @@ ResultView.prototype.createResultParagraph = function (result) {
   return resultParagraph;
 };
 
-ResultView.prototype.createResultHeader = function () {
-  const resultHeader = document.createElement('h2');
-  resultHeader.textContent = "Result:"
-  this.container.appendChild(resultHeader);
-};
-
-
-
+// ResultView.prototype.createResultHeader = function () {
+//   const resultHeader = document.createElement('p');
+//   resultHeader.textContent = "Result:"
+//   this.container.appendChild(resultHeader);
+// };
 
 ResultView.prototype.clearView = function () {
   this.container.innerHTML = '';
