@@ -39,7 +39,7 @@ const skipbutton = document.querySelector('button#skip')
 
 
   // viewer.initialiseWebGL()
-  viewer.TestBindAnswerEvents()
+  // viewer.TestBindAnswerEvents()
   // viewer.exlporationMode()
 
 

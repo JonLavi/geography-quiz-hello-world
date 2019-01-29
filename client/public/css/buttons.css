@@ -1,3 +1,5 @@
+
+
 button {
   transition-duration: 0.4s;
   width: 150px;
@@ -8,12 +10,13 @@ button {
 }
 
 button:hover{
-  background-color: orange;
+  background-color: blue;
   color: white;
 }
 
-button.skip {
+#skip {
   color: black;
+  background-color: darkred;
 }
 
 button.next {
