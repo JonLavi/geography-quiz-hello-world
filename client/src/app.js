@@ -7,6 +7,7 @@ const ResultView = require('./views/result_view.js')
 const ButtonView = require('./views/button_view.js')
 const ScoreView = require('./views/score_view.js')
 const GameOverView = require('./views/game_over.js')
+const ModalView = require('./views/modal_view.js')
 
 const sampleData = require('./data/dummy.js')
 const Game = require('./models/game.js')
@@ -14,6 +15,14 @@ const Game = require('./models/game.js')
 document.addEventListener('DOMContentLoaded', () => {
 // debugger
   console.log('JavaScript Loaded');
+
+
+  // const welcomeScreen = document.querySelector('#quiz')
+  // const welcome = new WelcomeView(welcomeScreen);
+  // welcome.bindEvents()
+const modalarea = document.querySelector('#myModal')
+const modalFormView = new ModalView(modalarea)
+modalFormView.bindEvents()
 
 const inputForm = document.querySelector('section#input-form')
 const inputFormView = new InputView(inputForm)
@@ -28,11 +37,9 @@ const skipbutton = document.querySelector('button#skip')
   const viewer = new WebGLView(container, [55,0])
 
 
-  // viewer.initialiseWebGL()
-
 
   // viewer.initialiseWebGL()
-  // viewer.TestBindAnswerEvents()
+  viewer.TestBindAnswerEvents()
   // viewer.exlporationMode()
 
 
@@ -64,6 +71,8 @@ const skipbutton = document.querySelector('button#skip')
 
   const gameOver = new GameOverView;
   gameOver.bindEvents()
+
+
 
 
 });

@@ -14,6 +14,7 @@ WebGLView.prototype.initialiseWebGL = function () {
   document.head.appendChild(imported);
 
 
+
     const map = WE.map('map', {
       center: [40,0],
       zoom: 3.1,
@@ -63,26 +64,44 @@ WebGLView.prototype.initialiseWebGL = function () {
       document.head.appendChild(imported);
 
 
+        // const map = WE.map('map', {
+        //   // center: this.center,
+        //   zoom: 3.5,
+        //   dragging: true,
+        //   scrollWheelZoom: true
+        // });
+        //
+        // var osm = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        //   attribution: '© OpenStreetMap contributors'
+        // }).addTo(map);
+
         const map = WE.map('map', {
           // center: this.center,
-          zoom: 3.5,
+          zoom: 4,
           dragging: true,
           scrollWheelZoom: true
         });
 
-        var osm = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-          attribution: '© OpenStreetMap contributors'
+        const baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+          tileSize: 256,
+          bounds: [[-85, -180], [85, 180]],
+          minZoom: 0,
+          maxZoom: 16,
+          attribution: 'WebGLEarth',
+          tms: true
         }).addTo(map);
 
 
+
+
 // FOR GAME DATA
-        PubSub.subscribe('Countries:game-data', (event) => {
-          this.gameData = event.detail[0];
+        PubSub.subscribe('Game:current-question', (event) => {
+          gameData = event.detail;
 
-          const marker = WE.marker(this.gameData.latlng).addTo(map);
-          marker.bindPopup(`<b>${this.gameData.name}<br><img src='${this.gameData.flag}' height='40' width='60'><br>Capital: ${this.gameData.capital}<br>Population: ${this.gameData.population}<br>Currency: ${this.gameData.currencies[0].name}</b>`, {maxWidth: 150, closeButton: false});
+          const marker = WE.marker(gameData.latlng).addTo(map);
+          marker.bindPopup(`<b>${gameData.name}<br><img src='${gameData.flag}' height='40' width='60'><br>Capital: ${gameData.capital}<br>Population: ${gameData.population}<br>Currency: ${gameData.currencies[0].name}</b>`, {maxWidth: 150, closeButton: false});
 
-          map.panTo(this.gameData.latlng);
+          map.panTo(gameData.latlng);
 
             });
 
