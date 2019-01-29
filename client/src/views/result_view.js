@@ -8,13 +8,18 @@ ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:result-ready', (evt) => {
     this.renderResult(evt.detail);
   });
+
+  PubSub.subscribe('NextQuestionView:button-pressed', () => {
+    this.clearView();
+  })
 };
 
 ResultView.prototype.renderResult = function (result) {
   console.log('result:', result );
   this.container.innerHTML = '';
-  const resultItem = this.createResultParagraph(result)
-  this.container.appendChild(resultItem)
+  this.createResultHeader();
+  const resultItem = this.createResultParagraph(result);
+  this.container.appendChild(resultItem);
 };
 
 ResultView.prototype.createResultParagraph = function (result) {
@@ -25,6 +30,19 @@ ResultView.prototype.createResultParagraph = function (result) {
     resultParagraph.textContent = `Aww shucks, that's not quite right`
   }
   return resultParagraph;
+};
+
+ResultView.prototype.createResultHeader = function () {
+  const resultHeader = document.createElement('h2');
+  resultHeader.textContent = "Result:"
+  this.container.appendChild(resultHeader);
+};
+
+
+
+
+ResultView.prototype.clearView = function () {
+  this.container.innerHTML = '';
 };
 
 
