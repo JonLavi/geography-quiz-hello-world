@@ -1,0 +1,22 @@
+button {
+  transition-duration: 0.4s;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 32px;
+  background-color: green;
+}
+
+button:hover{
+  background-color: orange;
+  color: white;
+}
+
+button.skip {
+  color: black;
+}
+
+button.next {
+  background-color: green;
+  color: white;
+}
