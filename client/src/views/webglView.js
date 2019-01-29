@@ -70,8 +70,13 @@ WebGLView.prototype.initialiseWebGL = function () {
           scrollWheelZoom: true
         });
 
-        var osm = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-          attribution: '© OpenStreetMap contributors'
+        const baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+          tileSize: 256,
+          bounds: [[-85, -180], [85, 180]],
+          minZoom: 0,
+          maxZoom: 16,
+          attribution: 'WebGLEarth',
+          tms: true
         }).addTo(map);
 
 
