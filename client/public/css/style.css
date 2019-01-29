@@ -5,12 +5,14 @@
 body {
   background-image: url('./pictures/board.jpg');
   color: white;
+  width: auto;
+  height: 100%;
 }
 
 h1 {
-  font-size: 94px;
+  font-size: 7  4px;
  padding: 5px;
- font-family: 'Whale I tried';
+ font-family: 'Indie Flower';
  color: #EF767A;
 }
 
@@ -23,7 +25,7 @@ h2, h3 {
 
 p {
   font-size: 24px;
- padding: 2px;
+ padding: 5px;
  font-family: 'Pacifico';
  color: #783F8E;
 }
@@ -61,14 +63,17 @@ input[type=text]:focus {
 .grid-container {
 display: grid;
 grid-template-columns: auto auto 50%;
+grid-template-rows: 19% 19% 19% 19% 19%;
 padding: 1px;
 background-color: rgba(255, 255, 255, 0.3);
+height: 100%;
 }
 
 .grid-item {
 border: 1px solid rgba(0, 0, 0, 0.8);
 padding: 1px;
 text-align: center;
+justify-content: center;
 }
 
 #title {
@@ -104,14 +109,4 @@ text-align: center;
 #globe {
   grid-column: 3;
   grid-row: 2/ 6;
-}
-
-#quiz {
-  width: 35%;
-  height:660px;
-}
-
-#map {
-  width: 65%;
-  height: 660px;
 }
