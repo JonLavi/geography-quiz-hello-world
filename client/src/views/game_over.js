@@ -24,11 +24,12 @@ GameOverView.prototype.renderGameOver = function (score) {
 
     const position = document.querySelector('#question')
     const resultParagraph = document.createElement('h2');
-    resultParagraph.textContent = `Game Over. Your score was ${score}`
+    resultParagraph.textContent = `Game Over. Your score was ${score}!!`
     position.appendChild(resultParagraph)
 
     const button = document.createElement('button')
-    button.textContent = 'Start Again'
+    button.id = 'restart'
+    button.textContent = 'Play again'
     button.addEventListener('click', function() {
       document.location.reload(true)
     })

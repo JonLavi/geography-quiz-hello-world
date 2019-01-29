@@ -11,7 +11,8 @@ body {
 }
 
 h1 {
-  font-size: 7  4px;
+font-size: 74px;
+font-weight: bold;
  padding: 5px;
  font-family: 'Indie Flower';
  color: #4A4747;
@@ -24,13 +25,22 @@ h2, h3 {
  color: #4A4747;
 }
 
+h6 {
+font-size: 32px;
+ padding: 2px;
+ font-weight: bold;
+ /* font-family: 'Pacifico'; */
+ color: #4A4747;
+}
+
 p {
-  font-size: 24px;
+  font-size: 28px;
  padding: 2px;
  /* font-family: 'Pacifico'; */
  color: #4A4747;
  line-height: 80%;
 }
+
 
 ul,li {
   font-size: 24px;
@@ -72,17 +82,19 @@ input[type=text]:focus {
 .grid-container {
 display: grid;
 grid-template-columns: auto auto 50%;
-grid-template-rows: 19% 19% 19% 19% 19%;
+grid-template-rows: 100px 150px 150px 150px 150px;
 padding: 1px;
 background-color: rgba(255, 255, 255, 0.3);
 height: 100%;
 }
 
 .grid-item {
+display: flex;
 border: 1px solid rgba(0, 0, 0, 0.8);
 padding: 1px;
 text-align: center;
 justify-content: center;
+align-items: center;
 }
 
 #title {

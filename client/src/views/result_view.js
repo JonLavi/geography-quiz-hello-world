@@ -23,7 +23,7 @@ ResultView.prototype.renderResult = function (result) {
 };
 
 ResultView.prototype.createResultParagraph = function (result) {
-  const resultParagraph = document.createElement('p');
+  const resultParagraph = document.createElement('h2');
   if (result){
     resultParagraph.textContent = "You are correct!"
   } else {

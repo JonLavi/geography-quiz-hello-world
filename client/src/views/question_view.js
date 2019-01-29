@@ -18,7 +18,7 @@ QuestionView.prototype.renderQuestionView = function (questionDetail) {
 };
 
 QuestionView.prototype.createQuestionParagraph = function (questionDetail) {
-  const question = document.createElement('p');
+  const question = document.createElement('h6');
   question.textContent = `In ${questionDetail.capital} they say ${questionDetail.hello}, what is the Country? `
   return question;
 };

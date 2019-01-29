@@ -8,7 +8,7 @@ button {
   font-size: 25px;
   color: #4A4747;
   background-color: green;
-  font: 'Indie Flower';
+  font-family: 'Indie Flower';
 }
 
 button:hover{
@@ -25,4 +25,8 @@ button:hover{
 button.next {
   background-color: green;
   color: white;
+}
+
+#restart {
+  width: 200px;
 }
