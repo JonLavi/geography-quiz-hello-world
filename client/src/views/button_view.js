@@ -21,7 +21,12 @@ ButtonView.prototype.bindEvents = function () {
 ButtonView.prototype.renderButton = function (state) {
 	this.button.id = state
   this.button.value = state;
-  this.button.textContent = state;
+  this.button.textContent = this.capitalize(state);
 };
+
+ButtonView.prototype.capitalize = function (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 
 module.exports = ButtonView

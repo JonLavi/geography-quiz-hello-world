@@ -1,0 +1,25 @@
+
+
+button {
+  transition-duration: 0.4s;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 32px;
+  background-color: green;
+}
+
+button:hover{
+  background-color: blue;
+  color: white;
+}
+
+#skip {
+  color: black;
+  background-color: darkred;
+}
+
+button.next {
+  background-color: green;
+  color: white;
+}
