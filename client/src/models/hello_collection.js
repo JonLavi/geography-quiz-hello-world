@@ -6,6 +6,10 @@ const Hello = function () {
   this.url = 'http://localhost:3000/api/hellos';
   this.request = new Request(this.url);
 };
+Hello.prototype.rules = function(){
+
+  PubSub.publish('Welcome:rules',evt)
+}
 
 Hello.prototype.getData = function () {
   this.request.get()

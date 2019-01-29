@@ -12,7 +12,7 @@ ScoreView.prototype.bindEvents = function () {
 
 ScoreView.prototype.renderScore = function (score) {
   this.container.innerHTML = '';
-  const scoreItem = document.createElement('p');
+  const scoreItem = document.createElement('h2');
   scoreItem.textContent = `Score: ${score}`;
   this.container.appendChild(scoreItem)
 };
