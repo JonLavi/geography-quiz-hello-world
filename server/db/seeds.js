@@ -7,7 +7,7 @@ db.hellos.insertMany([
   {name: "Germany", hello: "guten tag"},
   {name: "Netherlands", hello: "Hallo"},
   {name: "Ukraine", hello: "Dobriy den"},
-  {name: "Protugal", hello: "Olá"},
+  {name: "Portugal", hello: "Olá"},
   {name: "Denmark", hello: "Hej"},
   {name: "Estonia", hello: "Tere"},
   {name: "Italy", hello: "Ciao"},
