@@ -33,13 +33,13 @@ const skipbutton = document.querySelector('button#skip')
   skipButtonView.bindEvents()
 
 
-  const container = document.querySelector('#map')
+  const container = document.querySelector('#globe')
   const viewer = new WebGLView(container, [55,0])
 
 
 
   // viewer.initialiseWebGL()
-  // viewer.TestBindAnswerEvents()
+  viewer.TestBindAnswerEvents()
   // viewer.exlporationMode()
 
 

@@ -6,13 +6,28 @@
   <script src="js/bundle.js"></script>
   <script src="http://www.webglearth.com/v2/api.js"></script>
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/modal.css">
   <title>hello world</title>
 
 </head>
 
 <body>
-  
+  <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h1>Welcome to Hello World</h1>
+                  <hr>
+                  <h2>This game was painstakingly put together by Katherina, Jonathan, Raul & Rick </h2>
+                  <br>
+                  <h2>Game Rules:</h2>
+                    <h3>Guess the name of the country and hit submit<h3>
+                    <h3>Click 'next' to get to the next question</h3>
+                    <br>
+                    <h2>Good luck!<h2>
+                    <h3>Click anywhere to continue</h3>
+                </div>
+              </div>
   <div class="grid-container">
 
 
@@ -30,8 +45,8 @@
     <section class="grid-item" id ="input-form">
       <form>
         <label for="input"></label>
-        <input type="text" id="input" name="input" value="Input..." >
-        <input type="submit" value="Submit" />``
+        <input type="text" id="input" name="input" placeholder="Input..." >
+        <button type="submit">Submit</button>
       </form>
     </section>
 
