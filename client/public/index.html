@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
-    <meta charset="utf-8">
-    <script src="js/bundle.js"></script>
-    <script src="http://www.webglearth.com/v2/api.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="utf-8">
+  <script src="js/bundle.js"></script>
+  <script src="http://www.webglearth.com/v2/api.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 
-    <title>hello world</title>
+  <title>hello world</title>
 
-  </head>
-  <body>
-      <h1>&ltHello World&gt;</h1>
-      <hr>
-      <div class="flex-container">
-        <div id="quiz">
-            <section id ="question">
-                <h2>Question Section</h2>
-            </section>
+</head>
 
-            <section id ="input-form">
-                    <form>
-                      <label for="input"></label>
-                      <input type="text" id="input" name="input" value="Input..." >
-                      <input type="submit" value="Submit" />``
-                    </form>
-            </section>
-
-            <section id ="result">
-
-            </section>
-
-            <section id="score">
-              <h2>Score</h2>
-
-            </section>
-
-            <section id="controls">
-              <button id="skip" type="submit" value ="skip">Skip</button>
-            </section>
-
-        </div>
-        <div id="map">
+<body>
+  
+  <div class="grid-container">
 
 
-        </div>
+    <div class="grid-item" id='title'>
+      <h1>Hello World</h1>
+    </div>
 
 
-      </body>
-      </html>
+    <section class="grid-item" id ="question">
+    </section>
+
+    <section class="grid-item" id ="question">
+    </section>
+
+    <section class="grid-item" id ="input-form">
+      <form>
+        <label for="input"></label>
+        <input type="text" id="input" name="input" value="Input..." >
+        <input type="submit" value="Submit" />``
+      </form>
+    </section>
+
+
+    <section class="grid-item" id ="result">
+      <h2>Result</h2>
+    </section>
+
+    <section class="grid-item" id="score">
+      <h2>Score</h2>
+    </section>
+
+    <section class="grid-item" id="controls">
+      <button id="skip" type="submit" value ="skip">Skip</button>
+    </section>
+
+    <div class="grid-item" id="globe">
+    </div>
+
+  </div>
+
+</body>
+</html>
