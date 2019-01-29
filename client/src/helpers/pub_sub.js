@@ -4,12 +4,12 @@ const PubSub = {
       detail: payload
     });
     document.dispatchEvent(event);
-    // console.log(`Published on channel: ${channel}, with payload: ${payload}`);
+    console.log(`Published on channel: ${channel}, with payload: ${payload}`);
   },
 
   subscribe: function (channel, callback) {
     document.addEventListener(channel, callback);
-    // console.log(`Subscribed on channel: ${channel}`)
+    console.log(`Subscribed on channel: ${channel}`)
   }
 };
 

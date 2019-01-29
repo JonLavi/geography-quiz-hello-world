@@ -38,8 +38,15 @@ Game.prototype.bindEvents = function () {
     });
 
     PubSub.subscribe('NextQuestionView:button-pressed', (evt) => {
+      if (questionPool.length === 0) {
+
+        PubSub.publish('Game:game-over', this.score)
+
+      }
+      else{
       this.currentQuestion = this.makeNewQuestion(questionPool);
       PubSub.publish('Game:question-data-ready', this.currentQuestion);
+    }
     });
 
   })

@@ -2,13 +2,12 @@ const PubSub = require('../helpers/pub_sub.js');
 const WebGLView = require('./webglView.js')
 
 const GameOverView = function() {
-
 }
 
 GameOverView.prototype.bindEvents = function () {
 
 PubSub.subscribe('Game:game-over', (evt) => {
-  console.log(evt.detail);
+  // console.log(evt.detail);
   // debugger
   this.renderGameOver(evt.detail)
   this.renderMap()
@@ -16,7 +15,7 @@ PubSub.subscribe('Game:game-over', (evt) => {
 };
 
 GameOverView.prototype.renderGameOver = function (score) {
-    const gameOver = document.querySelector('#quiz')
+    const gameOver = document.querySelector('#question')
     gameOver.innerHTML = ''
     const resultParagraph = document.createElement('h2');
     resultParagraph.textContent = `Game Over. Your score was ${score}`
@@ -26,7 +25,7 @@ GameOverView.prototype.renderGameOver = function (score) {
 
 GameOverView.prototype.renderMap = function () {
 
-    const gameOverMap = document.querySelector('#map')
+    const gameOverMap = document.querySelector('#globe')
     gameOverMap.innerHTML = ''
     mapscreen = new WebGLView (gameOverMap, [55,0])
 
@@ -35,7 +34,7 @@ GameOverView.prototype.renderMap = function () {
     imported.async = true
     document.head.appendChild(imported);
 
-      const map = WE.map('map', {
+      const map = WE.map('globe', {
         center: [40,0],
         zoom: 3.1,
         dragging: true,
@@ -51,7 +50,6 @@ GameOverView.prototype.renderMap = function () {
         attribution: 'WebGLEarth',
         tms: true
       }).addTo(map);
-
 
 
       let before = null;
