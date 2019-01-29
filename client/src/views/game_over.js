@@ -26,6 +26,15 @@ GameOverView.prototype.renderGameOver = function (score) {
     const resultParagraph = document.createElement('h2');
     resultParagraph.textContent = `Game Over. Your score was ${score}`
     position.appendChild(resultParagraph)
+
+    const button = document.createElement('button')
+    button.textContent = 'Start Again'
+    button.addEventListener('click', function() {
+      document.location.reload(true)
+    })
+    position.appendChild(button)
+
+
 }
 
 GameOverView.prototype.clearView = function (id) {

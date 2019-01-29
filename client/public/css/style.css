@@ -25,9 +25,17 @@ h2, h3 {
 
 p {
   font-size: 24px;
- padding: 5px;
+ padding: 2px;
  font-family: 'Pacifico';
  color: #783F8E;
+ line-height: 80%;
+}
+
+ul,li {
+  font-size: 24px;
+padding: 2px;
+font-family: 'Pacifico';
+color: #783F8E;
 }
 
 b {
