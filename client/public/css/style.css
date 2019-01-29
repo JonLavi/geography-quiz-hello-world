@@ -68,14 +68,14 @@ input[type=text] {
   color: #4A4747;
   border-radius: 15px 50px;
   width: 200px;
-  height: 50px;
+  height: 70px;
   font-size: 35px;
   font-family: 'Indie Flower', cursive;
   text-align: center;
 }
 
 input[type=text]:focus {
-  width: 70%;
+  width: 110%;
 }
 
 
@@ -90,7 +90,7 @@ height: 100%;
 
 .grid-item {
 display: flex;
-border: 1px solid rgba(0, 0, 0, 0.8);
+/* border: 1px solid rgba(0, 0, 0, 0.8); */
 padding: 1px;
 text-align: center;
 justify-content: center;
