@@ -27,6 +27,7 @@ GameOverView.prototype.renderGameOver = function (score) {
     resultParagraph.textContent = `Game Over. Your score was ${score}!!`
     position.appendChild(resultParagraph)
 
+
     const button = document.createElement('button')
     button.id = 'restart'
     button.textContent = 'Play again'
