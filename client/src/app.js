@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // welcome.bindEvents()
 const modalarea = document.querySelector('#myModal')
 const modalFormView = new ModalView(modalarea)
-modalFormView.bindEvents()
+// modalFormView.bindEvents()
 
 const inputForm = document.querySelector('section#input-form')
 const inputFormView = new InputView(inputForm)
@@ -33,13 +33,13 @@ const skipbutton = document.querySelector('button#skip')
   skipButtonView.bindEvents()
 
 
-  const container = document.querySelector('#map')
+  const container = document.querySelector('#globe')
   const viewer = new WebGLView(container, [55,0])
 
 
 
   // viewer.initialiseWebGL()
-  // viewer.TestBindAnswerEvents()
+  viewer.TestBindAnswerEvents()
   // viewer.exlporationMode()
 
 

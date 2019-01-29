@@ -75,7 +75,7 @@ WebGLView.prototype.initialiseWebGL = function () {
         //   attribution: '© OpenStreetMap contributors'
         // }).addTo(map);
 
-        const map = WE.map('map', {
+        const map = WE.map('globe', {
           // center: this.center,
           zoom: 4,
           dragging: true,

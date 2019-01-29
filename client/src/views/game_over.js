@@ -16,7 +16,7 @@ PubSub.subscribe('Game:game-over', (evt) => {
 };
 
 GameOverView.prototype.renderGameOver = function (score) {
-    const gameOver = document.querySelector('#quiz')
+    const gameOver = document.querySelector('#question')
     gameOver.innerHTML = ''
     const resultParagraph = document.createElement('h2');
     resultParagraph.textContent = `Game Over. Your score was ${score}`
@@ -34,7 +34,7 @@ GameOverView.prototype.renderGameOver = function (score) {
 
 GameOverView.prototype.renderMap = function () {
 
-    const gameOverMap = document.querySelector('#map')
+    const gameOverMap = document.querySelector('#globe')
     gameOverMap.innerHTML = ''
     mapscreen = new WebGLView (gameOverMap, [55,0])
 
