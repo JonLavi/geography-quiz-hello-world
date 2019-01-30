@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <script src="js/bundle.js"></script>
   <script src="http://www.webglearth.com/v2/api.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="js/animation.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/animation.css">
   <title>hello world</title>
 
 </head>
@@ -26,11 +29,16 @@
                     <p>Click anywhere to continue<p>
                 </div>
               </div>
+
   <div class="grid-container">
 
 
     <div class="grid-item" id='title'>
-      <h1>Hello World</h1>
+      <h1 class="ml6">
+        <span class="text-wrapper">
+          <span class="letters" id='titleLetters'></span>
+        </span>
+      </h1>
     </div>
 
 
