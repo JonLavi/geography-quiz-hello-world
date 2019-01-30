@@ -60,7 +60,7 @@ GameOverView.prototype.renderMap = function () {
 
       const map = WE.map('globe', {
         center: [40,0],
-        zoom: 3.1,
+        zoom: 2.7,
         dragging: true,
         scrollWheelZoom: true,
 

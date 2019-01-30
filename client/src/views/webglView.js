@@ -98,7 +98,7 @@ WebGLView.prototype.initialiseWebGL = function () {
         PubSub.subscribe('Game:current-question', (event) => {
           gameData = event.detail;
 
-          
+
           marker = WE.marker(gameData.latlng).addTo(map);
           marker.bindPopup(`<b>${gameData.name}<br><img src='${gameData.flag}' height='40' width='60'><br>Capital: ${gameData.capital}<br>Population: ${gameData.population}<br>Currency: ${gameData.currencies[0].name}</b>`, {maxWidth: 150, closeButton: false});
 
