@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const ResultView = function (container) {
   this.container = container;
+  this.currentQuestion
 }
 
 ResultView.prototype.bindEvents = function () {
@@ -12,34 +13,36 @@ ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('NextQuestionView:button-pressed', () => {
     this.clearView();
   })
+
+  PubSub.subscribe('Game:question-data-ready', evt =>{
+    this.currentQuestion = evt.detail
+  })
+
 };
 
 ResultView.prototype.renderResult = function (result) {
   console.log('result:', result );
   this.container.innerHTML = '';
-  this.createResultHeader();
+  // this.createResultHeader();
   const resultItem = this.createResultParagraph(result);
   this.container.appendChild(resultItem);
 };
 
 ResultView.prototype.createResultParagraph = function (result) {
-  const resultParagraph = document.createElement('p');
+  const resultParagraph = document.createElement('h6');
   if (result){
     resultParagraph.textContent = "You are correct!"
   } else {
-    resultParagraph.textContent = `Aww shucks, that's not quite right`
+    resultParagraph.textContent = `Aww shucks. The correct answer is: ${this.currentQuestion.name}`
   }
   return resultParagraph;
 };
 
-ResultView.prototype.createResultHeader = function () {
-  const resultHeader = document.createElement('h2');
-  resultHeader.textContent = "Result:"
-  this.container.appendChild(resultHeader);
-};
-
-
-
+// ResultView.prototype.createResultHeader = function () {
+//   const resultHeader = document.createElement('p');
+//   resultHeader.textContent = "Result:"
+//   this.container.appendChild(resultHeader);
+// };
 
 ResultView.prototype.clearView = function () {
   this.container.innerHTML = '';

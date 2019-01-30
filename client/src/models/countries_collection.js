@@ -33,17 +33,15 @@ Countries.prototype.getCountriesAPIData = function () {
 };
 
 
-Countries.prototype.filterData = function (apiData, sampleData) {
-  // debugger
+Countries.prototype.filterData = function (apiData, helloData) {
   let filteredObjectArray = []
-  sampleData.forEach((country) => {
+  helloData.forEach((country) => {
     apiData.forEach((apiCountry) => {
       if (apiCountry.name === country.name) {
         apiCountry.hello = country.hello
         filteredObjectArray.push(apiCountry)
       }
-    }
-  )
+    })
   })
 return filteredObjectArray
 };

@@ -22,13 +22,18 @@ GameOverView.prototype.renderGameOver = function (score) {
     this.clearView('#controls')
 
 
-    const position = document.querySelector('#question')
+    const position = document.querySelector('#input-form')
     const resultParagraph = document.createElement('h2');
-    resultParagraph.textContent = `Game Over. Your score was ${score}`
+    resultParagraph.textContent = `Game Over. Your score was ${score}/10!!`
     position.appendChild(resultParagraph)
 
+    // 
+    // const element = document.createElement('br')
+    // postion.appendChild(element)
+
     const button = document.createElement('button')
-    button.textContent = 'Start Again'
+    button.id = 'restart'
+    button.textContent = 'Play again'
     button.addEventListener('click', function() {
       document.location.reload(true)
     })
@@ -58,7 +63,7 @@ GameOverView.prototype.renderMap = function () {
 
       const map = WE.map('globe', {
         center: [40,0],
-        zoom: 3.1,
+        zoom: 2.7,
         dragging: true,
         scrollWheelZoom: true,
 
