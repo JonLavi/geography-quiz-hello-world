@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const lettersSpan = document.querySelector('span#titleLetters')
-  letters = ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!']
+  letters = ['H', 'e', 'l', 'l', 'o', '\0', 'W', 'o', 'r', 'l', 'd', '!']
   letters.forEach( (letter) => {
     const letterSpan = document.createElement('span')
     letterSpan.classList.add('letter');
