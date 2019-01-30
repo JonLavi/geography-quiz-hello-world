@@ -29,4 +29,8 @@ button.next {
 
 #restart {
   width: 200px;
+  height: 200px;
+  font-size: 32px;
+  font-weight: bold;
+  background-color: #EF626C;
 }

@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const ResultView = function (container) {
   this.container = container;
+  this.currentQuestion
 }
 
 ResultView.prototype.bindEvents = function () {
@@ -12,6 +13,11 @@ ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('NextQuestionView:button-pressed', () => {
     this.clearView();
   })
+
+  PubSub.subscribe('Game:question-data-ready', evt =>{
+    this.currentQuestion = evt.detail
+  })
+
 };
 
 ResultView.prototype.renderResult = function (result) {
@@ -23,11 +29,11 @@ ResultView.prototype.renderResult = function (result) {
 };
 
 ResultView.prototype.createResultParagraph = function (result) {
-  const resultParagraph = document.createElement('h2');
+  const resultParagraph = document.createElement('h6');
   if (result){
     resultParagraph.textContent = "You are correct!"
   } else {
-    resultParagraph.textContent = `Aww shucks, that's not quite right`
+    resultParagraph.textContent = `Aww shucks. The correct answer is: ${this.currentQuestion.name}`
   }
   return resultParagraph;
 };

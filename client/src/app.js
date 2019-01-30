@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // const welcomeScreen = document.querySelector('#quiz')
   // const welcome = new WelcomeView(welcomeScreen);
   // welcome.bindEvents()
-const modalarea = document.querySelector('#myModal')
-const modalFormView = new ModalView(modalarea)
-modalFormView.bindEvents()
+
 
 const inputForm = document.querySelector('section#input-form')
 const inputFormView = new InputView(inputForm)
@@ -72,7 +70,9 @@ const skipbutton = document.querySelector('button#skip')
   const gameOver = new GameOverView;
   gameOver.bindEvents()
 
-
+  const modalarea = document.querySelector('#myModal')
+  const modalFormView = new ModalView(modalarea)
+  modalFormView.bindEvents()
 
 
 });
