@@ -16,7 +16,6 @@ To install the dependencies on your machine, from the root folder of the project
 
 ```
 npm install
-
 ```
 
 Run webpack to produce the bundle.js file:
@@ -56,5 +55,3 @@ See also the list of [contributors](https://github.com/JonLavi/geography-quiz-he
 ## Acknowledgments
 
 * Our instructors at CodeClan for guidance and advice
-* Inspiration
-* etc
