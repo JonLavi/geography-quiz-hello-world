@@ -13,25 +13,27 @@ All dependencies can be installed and set up using npm for node.js. This project
 ### Installing
 
 To install the dependencies on your machine, from the root folder of the project run:
-
 ```
 npm install
 ```
 
-Run webpack to produce the bundle.js file:
+Prepare the local mongoDB database:
+```
+mongo < server/db/seeds.js
+```
 
+### Running the game
+Run webpack to dynamically produce the bundle.js file:
 ```
 npm run build
 ```
 
 In a second terminal session, run the express webserver:
-
 ```
 npm run server:dev
 ```
 
 To play the game, point your webbrowser towards:
-
 ```
 http://localhost:3000
 ```
