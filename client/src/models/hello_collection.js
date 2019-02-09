@@ -2,16 +2,16 @@ const Request = require('../helpers/request_helper.js');
 const PubSub = require('../helpers/pub_sub.js');
 const fetch = require('node-fetch');
 
-const Hello = function () {
+const Hello = function() {
   this.url = 'http://localhost:3000/api/hellos';
   this.request = new Request(this.url);
 };
-Hello.prototype.rules = function(){
 
-  PubSub.publish('Welcome:rules',evt)
-}
+Hello.prototype.rules = function() {
+  PubSub.publish('Welcome:rules', evt);
+};
 
-Hello.prototype.getData = function () {
+Hello.prototype.getData = function() {
   this.request.get()
     .then((hellos) => {
       PubSub.publish('Hello:data-loaded', hellos);
@@ -19,6 +19,4 @@ Hello.prototype.getData = function () {
     .catch(console.error);
 };
 
-
-
-module.exports = Hello
+module.exports = Hello;

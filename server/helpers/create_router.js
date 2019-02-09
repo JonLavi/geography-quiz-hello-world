@@ -1,10 +1,8 @@
 const express = require('express');
 
-const ObjectID = require('mongodb').ObjectID; // used to transform Ids from String to ObjectID 'class';
-// header('Access-Control-Allow-Origin: *');
-const createRouter = function (collection) { // takes the database collection to work with it
-
-
+const ObjectID = require('mongodb').ObjectID;
+const createRouter = function (collection) {
+  
   const router = express.Router();
 
   // index

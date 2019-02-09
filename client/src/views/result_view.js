@@ -1,36 +1,34 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const ResultView = function (container) {
+const ResultView = function(container) {
   this.container = container;
-  this.currentQuestion
-}
+  this.currentQuestion;
+};
 
-ResultView.prototype.bindEvents = function () {
+ResultView.prototype.bindEvents = function() {
   PubSub.subscribe('Game:result-ready', (evt) => {
     this.renderResult(evt.detail);
-  });
+  })
 
   PubSub.subscribe('NextQuestionView:button-pressed', () => {
     this.clearView();
   })
 
-  PubSub.subscribe('Game:question-data-ready', evt =>{
-    this.currentQuestion = evt.detail
+  PubSub.subscribe('Game:question-data-ready', evt => {
+    this.currentQuestion = evt.detail;
   })
-
 };
 
-ResultView.prototype.renderResult = function (result) {
-  console.log('result:', result );
+ResultView.prototype.renderResult = function(result) {
+  console.log('result:', result);
   this.container.innerHTML = '';
-  // this.createResultHeader();
   const resultItem = this.createResultParagraph(result);
   this.container.appendChild(resultItem);
 };
 
-ResultView.prototype.createResultParagraph = function (result) {
+ResultView.prototype.createResultParagraph = function(result) {
   const resultParagraph = document.createElement('h6');
-  if (result){
+  if (result) {
     resultParagraph.textContent = "You are correct!"
   } else {
     resultParagraph.textContent = `Aww shucks. The correct answer is: ${this.currentQuestion.name}`
@@ -38,15 +36,8 @@ ResultView.prototype.createResultParagraph = function (result) {
   return resultParagraph;
 };
 
-// ResultView.prototype.createResultHeader = function () {
-//   const resultHeader = document.createElement('p');
-//   resultHeader.textContent = "Result:"
-//   this.container.appendChild(resultHeader);
-// };
-
-ResultView.prototype.clearView = function () {
+ResultView.prototype.clearView = function() {
   this.container.innerHTML = '';
 };
-
 
 module.exports = ResultView;
