@@ -7,18 +7,19 @@
     "start": "node server/server.js",
     "server:dev": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/katharina01099/Hello-World-Javascript-project.git"
+    "url": "git+https://github.com/JonLavi/geography-quiz-hello-world.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/katharina01099/Hello-World-Javascript-project/issues"
+    "url": "https://github.com/JonLavi/geography-quiz-hello-world/issues"
   },
-  "homepage": "https://github.com/katharina01099/Hello-World-Javascript-project#readme",
+  "homepage": "https://github.com/JonLavi/geography-quiz-hello-world#readme",
   "devDependencies": {
     "nodemon": "^1.18.9",
     "webpack": "^4.29.0",
