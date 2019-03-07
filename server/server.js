@@ -5,7 +5,7 @@ const parser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js')
 const fetch = require('node-fetch');
-const mDB = require('./mongodb_connection');
+const mDB = require('./helpers/mongodb_connection.js');
 
 const publicPath = path.join(__dirname, '../client/public');
 app.use(express.static(publicPath));
