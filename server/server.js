@@ -12,6 +12,9 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
  
+app.get('/', function (req, res) {
+  res.sendFile('index.html');
+});
 
 MongoClient.connect(mongodb_connection)
   .then((client) => {
