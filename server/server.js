@@ -12,11 +12,11 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
  
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile('index.html');
 });
 
-MongoClient.connect(mdb)
+MongoClient.connect(mdb, { useNewUrlParser: true })
   .then((client) => {
     const db = client.db('heroku_3mr9jt7k');
     const hellosCollection = db.collection('hellos');
