@@ -5,7 +5,7 @@ const parser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js')
 const fetch = require('node-fetch');
-const mongodb_connection = require('./mongodb_connection')
+const mDB = require('./mongodb_connection');
 
 const publicPath = path.join(__dirname, '../client/public');
 app.use(express.static(publicPath));
@@ -16,7 +16,7 @@ app.get('*', function (req, res) {
   res.sendFile('index.html');
 });
 
-MongoClient.connect(mongodb_connection)
+MongoClient.connect(mDB)
   .then((client) => {
     const db = client.db('heroku_3mr9jt7k');
     const hellosCollection = db.collection('hellos');
