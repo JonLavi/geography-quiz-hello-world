@@ -4,7 +4,7 @@ const path = require('path');
 const parser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js');
-const mongodb_connection = require('./helpers/mongodb_connection.js');
+// const mongodb_connection = require('./helpers/mongodb_connection.js');
 // const fetch = require('node-fetch');
 
 
