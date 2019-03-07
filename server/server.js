@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   res.sendFile('index.html');
 });
 
-MongoClient.connect(process.env.MONGODB_URIp, { useNewUrlParser: true })
+MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then((client) => {
     const db = client.db('heroku_3mr9jt7k');
     const hellosCollection = db.collection('hellos');
