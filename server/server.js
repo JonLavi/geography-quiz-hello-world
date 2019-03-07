@@ -12,7 +12,7 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
  
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.sendFile('index.html');
 });
 
