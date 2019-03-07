@@ -3,7 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const fetch = require('node-fetch');
 
 const Hello = function() {
-  this.url = 'https://localhost:3000/api/hellos';
+  this.url = 'https://hello-world-quiz.herokuapp.com/api/hellos';
   this.request = new Request(this.url);
 };
 
