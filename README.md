@@ -35,7 +35,7 @@ npm run server:dev
 
 To play the game, point your webbrowser towards:
 ```
-http://localhost:3000
+https://localhost:3000
 ```
 
 ## Built With

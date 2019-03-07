@@ -9,7 +9,7 @@ const WebGLView = function(container, center, marker) {
 WebGLView.prototype.initialiseWebGL = function() {
 
   const imported = document.createElement('script');
-  imported.src = 'http://www.webglearth.com/v2/api.js';
+  imported.src = 'https://www.webglearth.com/v2/api.js';
   imported.async = true;
   document.head.appendChild(imported);
 
@@ -46,7 +46,7 @@ WebGLView.prototype.initialiseWebGL = function() {
 WebGLView.prototype.TestBindAnswerEvents = function() {
 
   const imported = document.createElement('script');
-  imported.src = 'http://www.webglearth.com/v2/api.js';
+  imported.src = 'https://www.webglearth.com/v2/api.js';
   imported.async = true
   document.head.appendChild(imported);
 
@@ -87,7 +87,7 @@ WebGLView.prototype.TestBindAnswerEvents = function() {
 WebGLView.prototype.exlporationMode = function() {
 
   const imported = document.createElement('script');
-  imported.src = 'http://www.webglearth.com/v2/api.js';
+  imported.src = 'https://www.webglearth.com/v2/api.js';
   imported.async = true
   document.head.appendChild(imported);
 

@@ -46,7 +46,7 @@ GameOverView.prototype.renderMap = function() {
   mapscreen = new WebGLView(gameOverMap, [55, 0]);
 
   const imported = document.createElement('script');
-  imported.src = 'http://www.webglearth.com/v2/api.js';
+  imported.src = 'https://www.webglearth.com/v2/api.js';
   imported.async = true;
   document.head.appendChild(imported);
 
