@@ -82,7 +82,7 @@ input[type=text]:focus {
 .grid-container {
 display: grid;
 grid-template-columns: auto auto 50%;
-grid-template-rows: 100px 150px 150px 150px 150px;
+grid-template-rows: 100px 150px 150px 150px 150px 30px;
 padding: 1px;
 background-color: rgba(255, 255, 255, 0.3);
 height: 100%;
@@ -130,4 +130,16 @@ align-items: center;
 #globe {
   grid-column: 3;
   grid-row: 2/ 6;
+}
+
+footer{
+  grid-column: 1/4;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px solid black;
+  padding-top: 5px;
+  padding-right: 5px;
+  display:inline-block;
+  justify-content: center;
+align-items: center;
 }
