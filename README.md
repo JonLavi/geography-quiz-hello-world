@@ -2,6 +2,12 @@
 
 Hello World is a web-based quiz game that presents geography questions, designed to help people learn the capitals of the world. It was created as part of CodeClan project week by the group "Hello World" of cohort E27.
 
+To play the game online, visit: https://hello-world-quiz.herokuapp.com
+Please note that in this version, there is sometimes a bug with the async nature of the API requests in JavaScript. If the game does not display a question, simply try and refresh the page to solve this.
+
+![adsfasdfasdf](https://user-images.githubusercontent.com/44193148/53963541-6eac8800-40e5-11e9-8351-3f7880297906.png)
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
