@@ -29,6 +29,6 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.6.7"
   }
 }
